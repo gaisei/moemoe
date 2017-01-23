@@ -25,6 +25,10 @@ a img {
   text-align: center;
 }
 
+.moreBtn button {
+  cursor: pointer;
+}
+
 /* ヘッダー
 ****************************************************/
 #header {
@@ -182,6 +186,8 @@ a img {
 
 /* 広告 */
 .ad {
+  width: 280px;
+  height: 280px;
   margin-bottom: 20px;
 }
 

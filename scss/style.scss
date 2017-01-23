@@ -25,6 +25,9 @@ a {
 
 .moreBtn {
 	text-align: center;
+	button {
+		cursor: pointer;
+	}
 }
 
 /* ヘッダー
@@ -158,6 +161,8 @@ a {
 
 /* 広告 */
 .ad {
+	width: 280px;
+	height: 280px;
 	margin-bottom: 20px;
 }
 
