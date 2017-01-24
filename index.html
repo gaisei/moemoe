@@ -7,6 +7,10 @@
   	<link rel="stylesheet" href="css/reset.css">
   	<link rel="stylesheet" href="css/libs/jquery.bxslider.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.0.2/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.0.2/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
   </head>
   <body>
 
@@ -26,78 +30,12 @@
 				</section>
 				<section class="newAnime">
 					<h2>新着アニメ情報</h2>
-					<ul>
-						<li>
-							<a href="#">
-								<figure>
-									<img src="images/anime/1.jpg" alt="アニメ1">
-									<figcaption>アニメ1</figcaption>
-								</figure>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<figure>
-									<img src="images/anime/2.jpg" alt="アニメ2">
-									<figcaption>アニメ2</figcaption>
-								</figure>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<figure>
-									<img src="images/anime/3.jpg" alt="アニメ3">
-									<figcaption>アニメ3</figcaption>
-								</figure>
-							</a>
-						</li>
-					</ul>
+					<div class="newAnimeList"></div>
 					<p class="moreBtn"><button>もっと見る</button></p>
 				</section>
 				<section>
 					<h2>新着キャラクター</h2>
-					<ul>
-						<li>
-							<a href="#">
-								<figure>
-									<img src="images/character/1.jpg" alt="キャラクター1">
-									<figcaption>キャラクター1</figcaption>
-								</figure>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<figure>
-									<img src="images/character/2.jpg" alt="キャラクター2">
-									<figcaption>キャラクター2</figcaption>
-								</figure>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<figure>
-									<img src="images/character/3.jpg" alt="キャラクター3">
-									<figcaption>キャラクター3</figcaption>
-								</figure>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<figure>
-									<img src="images/character/4.jpg" alt="キャラクター4">
-									<figcaption>キャラクター4</figcaption>
-								</figure>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<figure>
-									<img src="images/character/5.jpg" alt="キャラクター5">
-									<figcaption>キャラクター5</figcaption>
-								</figure>
-							</a>
-						</li>
-					</ul>
+					<div class="newCharaList"></div>
 					<p class="moreBtn"><button>もっと見る</button></p>
 				</section>
 				<section>
@@ -154,16 +92,16 @@
 					<h3>アニメランキングTOP3</h3>
 					<table>
 						<tr>
-							<th><a href="#"><img src="images/anime/3.jpg" alt="キャラクター5" /></a></th>
+							<th><a href="#"><img src="images/anime/3/thumbnail.jpg" alt="キャラクター5" /></a></th>
 							<td>WORKING!</td>
 						</tr>
 						<tr>
-							<th><a href="#"><img src="images/anime/2.jpg" alt="キャラクター4" /></a></th>
-							<td>ご注文はうさぎですか？</td>
+							<th><a href="#"><img src="images/anime/2/thumbnail.jpg" alt="キャラクター4" /></a></th>
+							<td>ガールズアンドパンツァー</td>
 						</tr>
 						<tr>
-							<th><a href="#"><img src="images/anime/1.jpg" alt="キャラクター3" /></a></th>
-							<td>ガールズアンドパンツァー</td>
+							<th><a href="#"><img src="images/anime/1/thumbnail.jpg" alt="キャラクター3" /></a></th>
+							<td>ご注文はうさぎですか？</td>
 						</tr>
 					</table>
 					<p class="moreBtn"><button>もっと見る</button></p>
@@ -196,12 +134,8 @@
 	</div>
 	<!-- /#wrapper -->
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.0.2/react.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.0.2/react-dom.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script src="js/libs/jquery.bxslider.min.js"></script>
     <script src="js/style.js"></script>
-    <script type="text/babel" src="js/app.js"></script>
+    <script type="text/babel" src="js/app.js?0124"></script>
   </body>
 </html>

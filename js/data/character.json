@@ -1,0 +1,44 @@
+[
+	{
+		"id": 1,
+		"animeid": 1,
+		"charaid": 1,
+		"name": "シャロ",
+		"engname": "syaro"
+	},
+	{
+		"id": 2,
+		"animeid": null,
+		"charaid": 2,
+		"name": "レム",
+		"nickname": "rem"
+	},
+	{
+		"id": 3,
+		"animeid": null,
+		"charaid": 3,
+		"name": "渡辺曜",
+		"nickname": "watanabeyou"
+	},
+	{
+		"id": 4,
+		"animeid": null,
+		"charaid": 4,
+		"name": "御坂美琴",
+		"nickname": "misakamikoto"
+	},
+	{
+		"id": 5,
+		"animeid": 1,
+		"charaid": 2,
+		"name": "チノ",
+		"nickname": "chino"
+	},
+	{
+		"id": 6,
+		"animeid": 4,
+		"charaid": 1,
+		"name": "あおい",
+		"nickname": "aoi"
+	}
+]

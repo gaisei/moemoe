@@ -34,7 +34,7 @@ a {
 ****************************************************/
 #header {
 	width: 100%;
-	height: 80px;
+	height: 100px;
 	background: #fff;
 	border-top: 3px solid #fc7dc4;
 	box-shadow: 0px 4px 3px -3px rgba(0,0,0,0.3);
@@ -55,7 +55,7 @@ a {
 		h1 {
 			font-size: 28px;
 			font-weight: bold;
-			margin-bottom: 5px;
+			margin-bottom: 10px;
 		}
 		p {
 			font-size: 12px;
@@ -89,7 +89,7 @@ a {
 ****************************************************/
 #content {
 	width: $size-content - 20*2; // 左右のpaddingの合計値を引く
-	margin: 80px auto 0;
+	margin: 100px auto 0;
 	padding: 20px;
 	background: #fff;
 	overflow: hidden;
