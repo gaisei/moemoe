@@ -10,6 +10,7 @@ body {
 a {
   color: #333;
   text-decoration: none;
+  display: inline-block;
 }
 
 a img {
@@ -119,11 +120,7 @@ a img {
   margin-right: 20px;
 }
 
-#main section:not(.slider) {
-  margin-bottom: 30px;
-}
-
-#main section:not(.slider) h2 {
+#main h2 {
   font-size: 18px;
   font-weight: bold;
   border-left: 5px solid #ba9b89;
@@ -132,11 +129,30 @@ a img {
   margin-bottom: 20px;
 }
 
+#main .searchArea {
+  width: 860px;
+  height: 100px;
+}
+
+#main section:not(.slider) {
+  margin-bottom: 30px;
+}
+
 #main section:not(.slider) ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin-bottom: 20px;
+}
+
+.animelist #main section:not(.slider) ul {
+  /* リストページの場合 */
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.animelist #main section:not(.slider) ul li {
+  margin-bottom: 30px;
 }
 
 #main section:not(.slider) li {

@@ -13,6 +13,7 @@ body {
 a {
 	color: $color-font;
 	text-decoration: none;
+	display: inline-block;
 	img {
 		border-style: none;	
 	}
@@ -88,9 +89,10 @@ a {
 /* 大コンテンツ
 ****************************************************/
 #content {
-	width: $size-content - 20*2; // 左右のpaddingの合計値を引く
+	$contentPd: 20px;
+	width: $size-content - $contentPd * 2; // 左右のpaddingの合計値を引く
 	margin: 100px auto 0;
-	padding: 20px;
+	padding: $contentPd;
 	background: #fff;
 	overflow: hidden;
 }
@@ -102,19 +104,30 @@ a {
 	width: 860px;
 	float: left;
 	margin-right: 20px;
+	h2 {
+		font-size: 18px;
+		font-weight: bold;
+		border-left: 5px solid $color-h2-border;
+		border-bottom: 1px solid $color-h2-border;
+		padding: 0 0 3px 10px;
+		margin-bottom: 20px;
+	}
+	.searchArea {
+		width: 860px;
+		height: 100px;
+	}
 	section:not(.slider) {
 		margin-bottom: 30px;
-		h2 {
-			font-size: 18px;
-			font-weight: bold;
-			border-left: 5px solid $color-h2-border;
-			border-bottom: 1px solid $color-h2-border;
-			padding: 0 0 3px 10px;
-			margin-bottom: 20px;
-		}
 		ul {
 			display: flex;
 			margin-bottom: 20px;
+			.animelist & {
+				/* リストページの場合 */
+				flex-wrap: wrap;
+				li {
+					margin-bottom: 30px;
+				}
+			} 
 		}
 		li {
 			flex: 1;
