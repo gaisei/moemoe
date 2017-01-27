@@ -35,11 +35,9 @@ var Ad = React.createClass({
 	displayName: 'Ad',
 	adList: ['strikewitches', 'lovelivesunshine', 'fatestaynight'],
 	render: function() {
-		var pathname = location.pathname;
-		var adImageDir = '';
-		if(pathname.length > 1) adImageDir = '../'; 
-		var adImage = this.adList[Math.floor(Math.random() * this.adList.length)]; /* もっとうまいやりかたないだろうか */
-		var adImageSrc = adImageDir + 'images/ad/' + adImage + '.jpg';
+		var rootpath = 'http://gaisei.net/works/moemoe/'; /* 苦肉の策。もっとスマートなやり方を考えたい */
+		var adImage = this.adList[Math.floor(Math.random() * this.adList.length)];
+		var adImageSrc = rootpath + 'images/ad/' + adImage + '.jpg';
 		return (
 			<a href="#"><img src={adImageSrc} width="280" height="280" alt="広告" /></a>
 		);
