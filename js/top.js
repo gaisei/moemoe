@@ -25,9 +25,10 @@ var NewAnimeInfo = React.createClass({
 			<ul>
 				{newAnime3.map(function(result, i) {
 				var newAnimeThumbnail = "images/anime/" + result.id + "/thumbnail.jpg";
+				var animeUrl = "anime/#" + result.nickname;
 					return (
 						<li key={'key_' + i}>
-							<a href="#">
+							<a href={animeUrl}>
 								<figure>
 									<img src={newAnimeThumbnail} alt={result.name} width="250" height="250" />
 									<figcaption>{result.name}</figcaption>

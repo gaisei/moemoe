@@ -25,7 +25,7 @@ var AnimeList = React.createClass({
 			<ul>
 				{animeList.map(function(result, i) {
 				var animeThumbnail = "../images/anime/" + result.id + "/thumbnail.jpg";
-				var animeUrl = "anime/#" + result.id;
+				var animeUrl = "../anime/#" + result.nickname;
 					return (
 						<li key={'key_' + i}>
 							<a href={animeUrl}>
