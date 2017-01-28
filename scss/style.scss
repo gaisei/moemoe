@@ -1,6 +1,9 @@
 @charset 'UTF-8';
 
 @import 'vars';
+@import 'mixin';
+@import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
+
 
 /* 汎用
 ****************************************************/
@@ -55,6 +58,7 @@ a {
 		flex: 1;
 		align-self: center;
 		h1 {
+			font-family: 'Noto Sans JP';
 			font-size: 28px;
 			font-weight: bold;
 			margin-bottom: 10px;
@@ -117,57 +121,57 @@ a {
 	width: $size-main;
 	float: left;
 	margin-right: 20px;
-	h2 {
-		font-size: 18px;
-		font-weight: bold;
-		border-left: 5px solid $color-h2-border;
-		border-bottom: 1px solid $color-h2-border;
-		padding: 0 0 3px 10px;
+}
+
+h2 {
+	@include h2title;
+}
+
+.searchArea {
+	width: $size-main;
+	height: 100px;
+}
+
+section:not(.slider) {
+	margin-bottom: 30px;
+	ul {
+		display: flex;
 		margin-bottom: 20px;
 	}
-	.searchArea {
-		width: $size-main;
-		height: 100px;
+	li {
+		flex: 1;
+		text-align: center;
+		font-size: 14px;
+		img {
+			margin-bottom: 5px;
+			@include imgBorder;
+		}
 	}
-	section:not(.slider) {
-		margin-bottom: 30px;
+	&.animeListArea {
 		ul {
-			display: flex;
-			margin-bottom: 20px;
+			display: block;
+			overflow: hidden;
 		}
 		li {
-			flex: 1;
-			text-align: center;
-			font-size: 14px;
+			width: $size-main / 4;
+			float: left;
+			font-size: 12px;
+			margin-bottom: 20px;
 			img {
-				margin-bottom: 5px;
+				width: 200px;
+				height: auto;
+				@include imgBorder;
 			}
 		}
-		&.animeListArea {
-			ul {
-				display: block;
-				overflow: hidden;
-			}
-			li {
-				width: $size-main / 4;
-				float: left;
-				font-size: 12px;
-				margin-bottom: 20px;
-				img {
-					width: 200px;
-					height: auto;
-				}
-			}
+	}
+	&.animeCharaArea {
+		ul {
+			display: block;
+			overflow: hidden;
 		}
-		&.animeCharaArea {
-			ul {
-				display: block;
-				overflow: hidden;
-			}
-			li {
-				width: $size-main / 5;
-				float: left;
-			}
+		li {
+			width: $size-main / 5;
+			float: left;
 		}
 	}
 }
@@ -191,6 +195,11 @@ a {
 
 /* アニメ詳細ページ */
 .animeDataArea {
+	h2 {
+		&.titleBar {
+			@include titleBar;
+		}
+	}
 	.mainBanner,
 	.animeDescription {
 		margin-bottom: 20px;
@@ -277,6 +286,6 @@ a {
 ****************************************************/
 #footer {
 	padding: 10px 0;
-	font-size: 12px;
+	font-size: 10px;
 	text-align: center;
 }

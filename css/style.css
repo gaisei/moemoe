@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
 /* 汎用
 ****************************************************/
 body {
@@ -64,6 +65,7 @@ a img {
 }
 
 .headerContainer .headerID h1 {
+  font-family: 'Noto Sans JP';
   font-size: 28px;
   font-weight: bold;
   margin-bottom: 10px;
@@ -138,32 +140,40 @@ a img {
   margin-right: 20px;
 }
 
-#main h2 {
+h2 {
+  color: #411C00;
   font-size: 18px;
   font-weight: bold;
-  border-left: 5px solid #ba9b89;
-  border-bottom: 1px solid #ba9b89;
-  padding: 0 0 3px 10px;
+  position: relative;
+  border: 2px solid #ba9b89;
+  padding: 10px;
   margin-bottom: 20px;
+  border-radius: 4px;
 }
 
-#main .searchArea {
+h2:before {
+  content: '';
+  border-left: 5px solid #824921;
+  margin-right: 10px;
+}
+
+.searchArea {
   width: 860px;
   height: 100px;
 }
 
-#main section:not(.slider) {
+section:not(.slider) {
   margin-bottom: 30px;
 }
 
-#main section:not(.slider) ul {
+section:not(.slider) ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin-bottom: 20px;
 }
 
-#main section:not(.slider) li {
+section:not(.slider) li {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -171,33 +181,37 @@ a img {
   font-size: 14px;
 }
 
-#main section:not(.slider) li img {
+section:not(.slider) li img {
   margin-bottom: 5px;
+  padding: 2px;
+  border: 1px solid #dcdcdc;
 }
 
-#main section:not(.slider).animeListArea ul {
+section:not(.slider).animeListArea ul {
   display: block;
   overflow: hidden;
 }
 
-#main section:not(.slider).animeListArea li {
+section:not(.slider).animeListArea li {
   width: 215px;
   float: left;
   font-size: 12px;
   margin-bottom: 20px;
 }
 
-#main section:not(.slider).animeListArea li img {
+section:not(.slider).animeListArea li img {
   width: 200px;
   height: auto;
+  padding: 2px;
+  border: 1px solid #dcdcdc;
 }
 
-#main section:not(.slider).animeCharaArea ul {
+section:not(.slider).animeCharaArea ul {
   display: block;
   overflow: hidden;
 }
 
-#main section:not(.slider).animeCharaArea li {
+section:not(.slider).animeCharaArea li {
   width: 172px;
   float: left;
 }
@@ -221,6 +235,47 @@ a img {
 }
 
 /* アニメ詳細ページ */
+.animeDataArea h2.titleBar {
+  font-size: 20px;
+  color: #fff;
+  position: relative;
+  padding: 8px;
+  background: #BE956A;
+  border-left: none;
+  border-bottom: none;
+  margin-bottom: 40px;
+  border-radius: 0;
+  text-shadow: 2px 2px 1px black;
+}
+
+.animeDataArea h2.titleBar:before, .animeDataArea h2.titleBar:after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  border-style: solid;
+  border-color: transparent;
+}
+
+.animeDataArea h2.titleBar:before {
+  left: 0;
+  border-width: 0 20px 20px 0;
+  border-right-color: #4F2702;
+}
+
+.animeDataArea h2.titleBar:after {
+  right: 0;
+  border-style: solid;
+  border-width: 20px 20px 0 0;
+  border-top-color: #4F2702;
+}
+
+.animeDataArea h2.titleBar span {
+  display: block;
+  border: 1px dashed #633B17;
+  padding: 15px;
+  border-radius: 4px;
+}
+
 .animeDataArea .mainBanner,
 .animeDataArea .animeDescription {
   margin-bottom: 20px;
@@ -311,6 +366,6 @@ a img {
 ****************************************************/
 #footer {
   padding: 10px 0;
-  font-size: 12px;
+  font-size: 10px;
   text-align: center;
 }

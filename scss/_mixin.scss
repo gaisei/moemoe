@@ -1,0 +1,61 @@
+
+// h2
+@mixin h2title {
+	color: $color-h2-title;
+	font-size: 18px;
+	font-weight: bold;
+	position: relative;
+	border: 2px solid $color-h2-border;
+	padding: 10px;
+	margin-bottom: 20px;
+	border-radius: 4px;	
+	&:before {
+		content: '';
+		border-left: 5px solid $color-h2-border-l;
+		margin-right: 10px;
+	}
+}
+
+
+// 詳細ページのタイトルバー
+@mixin titleBar {
+	font-size: 20px;
+	color: #fff;
+	position: relative;
+	padding: 8px;
+	background: $color-titlebar-bg;
+	border-left: none;
+	border-bottom: none;
+	margin-bottom: 40px;
+	border-radius: 0;
+	text-shadow: 2px 2px 1px rgba(0,0,0,1.0);
+	&:before, &:after {
+		content: '';
+		position: absolute;
+		top: 100%;
+		border-style: solid;
+		border-color: transparent;
+	}
+	&:before {
+		left: 0;
+		border-width: 0 20px 20px 0;
+		border-right-color: $color-titlebar-down;
+	}
+	&:after {
+		right: 0;
+		border-style: solid;
+		border-width: 20px 20px 0 0;
+		border-top-color: $color-titlebar-down;
+	}
+	span {
+		display: block;
+		border: 1px dashed $color-titlebar-border;
+		padding: 15px;
+		border-radius: 4px;
+	}
+}
+
+@mixin imgBorder {
+	padding: 2px;
+	border: 1px solid $color-imgborder;
+}

@@ -21,9 +21,6 @@ var AnimeDetail = React.createClass({
 			}.bind(this)
 		});
 	},
-	insertSlash: function(str, index, insert) {
-		return str.slice(0, index) + insert + str.slice(index, str.length);
-	}.bind(this),
 	render: function() {
 		var hash = location.hash;
 		hash = hash.replace(/#/g, '');
@@ -40,7 +37,7 @@ var AnimeDetail = React.createClass({
 						return (
 							<div key={'key_' + i}>
 								<p className="mainBanner"><img src={animeMainBanner} width="860" height="200" alt={result.name} /></p>
-								<h2>{result.name}</h2>
+								<h2 className="titleBar"><span>{result.name}</span></h2>
 								<p className="animeDescription">{result.description}</p>
 								<div className="animeDatailInfo">
 									<iframe width="500" height="281" src={youtube} frameborder="0" allowfullscreen></iframe>
