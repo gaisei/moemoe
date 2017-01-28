@@ -11,34 +11,69 @@
 		"animeid": null,
 		"charaid": 2,
 		"name": "レム",
-		"nickname": "rem"
+		"engname": "rem"
 	},
 	{
 		"id": 3,
 		"animeid": null,
 		"charaid": 3,
 		"name": "渡辺曜",
-		"nickname": "watanabeyou"
+		"engname": "watanabeyou"
 	},
 	{
 		"id": 4,
 		"animeid": null,
 		"charaid": 4,
 		"name": "御坂美琴",
-		"nickname": "misakamikoto"
+		"engname": "misakamikoto"
 	},
 	{
 		"id": 5,
 		"animeid": 1,
 		"charaid": 2,
 		"name": "チノ",
-		"nickname": "chino"
+		"engname": "chino"
 	},
 	{
 		"id": 6,
 		"animeid": 4,
 		"charaid": 1,
 		"name": "あおい",
-		"nickname": "aoi"
+		"engname": "aoi"
+	},
+	{
+		"id": 7,
+		"animeid": 7,
+		"charaid": 1,
+		"name": "あかり",
+		"engname": "akari"
+	},
+	{
+		"id": 8,
+		"animeid": 2,
+		"charaid": 1,
+		"name": "西住みほ",
+		"engname": "nishizumimiho"
+	},
+	{
+		"id": 9,
+		"animeid": 3,
+		"charaid": 1,
+		"name": "種島ぽぷら",
+		"engname": "taneshimaporura"
+	},
+	{
+		"id": 10,
+		"animeid": 5,
+		"charaid": 1,
+		"name": "鹿目まどか",
+		"engname": "kanamemadoka"
+	},
+	{
+		"id": 11,
+		"animeid": 6,
+		"charaid": 1,
+		"name": "シャーロック・シェリンフォード",
+		"engname": "sherlock"
 	}
 ]

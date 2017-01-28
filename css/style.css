@@ -2,6 +2,7 @@
 /* 汎用
 ****************************************************/
 body {
+  font-family: "Hiragino Kaku Gothic ProN","メイリオ", sans-serif;
   position: relative;
   color: #333;
   box-sizing: border-box;
@@ -92,8 +93,25 @@ a img {
   border-left: 1px dotted #cfcfcf;
 }
 
+.headerContainer .headerMenu li:first-child {
+  border-bottom: 3px solid #ff7f7f;
+}
+
+.headerContainer .headerMenu li:nth-child(2) {
+  border-bottom: 3px solid #7f7fff;
+}
+
+.headerContainer .headerMenu li:nth-child(3) {
+  border-bottom: 3px solid #bf7fff;
+}
+
+.headerContainer .headerMenu li:nth-child(4) {
+  border-bottom: 3px solid #7fbfff;
+}
+
 .headerContainer .headerMenu li:last-child {
   border-right: 1px dotted #cfcfcf;
+  border-bottom: 3px solid #ffbf7f;
 }
 
 .headerContainer .headerMenu li a {
@@ -145,21 +163,43 @@ a img {
   margin-bottom: 20px;
 }
 
-.animelist #main section:not(.slider) ul {
-  /* リストページの場合 */
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-}
-
-.animelist #main section:not(.slider) ul li {
-  margin-bottom: 30px;
-}
-
 #main section:not(.slider) li {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
   text-align: center;
+  font-size: 14px;
+}
+
+#main section:not(.slider) li img {
+  margin-bottom: 5px;
+}
+
+#main section:not(.slider).animeListArea ul {
+  display: block;
+  overflow: hidden;
+}
+
+#main section:not(.slider).animeListArea li {
+  width: 215px;
+  float: left;
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+
+#main section:not(.slider).animeListArea li img {
+  width: 200px;
+  height: auto;
+}
+
+#main section:not(.slider).animeCharaArea ul {
+  display: block;
+  overflow: hidden;
+}
+
+#main section:not(.slider).animeCharaArea li {
+  width: 172px;
+  float: left;
 }
 
 /* スライダー */
@@ -178,6 +218,44 @@ a img {
   box-shadow: none;
   border: none;
   left: 0;
+}
+
+/* アニメ詳細ページ */
+.animeDataArea .mainBanner,
+.animeDataArea .animeDescription {
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.animeDatailInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.animeDatailInfo iframe {
+  margin-right: 20px;
+}
+
+.animeDatailInfo dl {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.animeDatailInfo dl dt {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.animeDatailInfo dl dd {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px dotted #666;
+}
+
+.animeDatailInfo dl dd:last-child {
+  margin-bottom: 0;
 }
 
 /* サイドバー

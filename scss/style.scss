@@ -5,6 +5,7 @@
 /* 汎用
 ****************************************************/
 body {
+	font-family: "Hiragino Kaku Gothic ProN","メイリオ", sans-serif;
 	position: relative;
 	color: $color-font;
 	box-sizing: border-box;
@@ -73,10 +74,22 @@ a {
 		li {
 			font-size: 16px;
 			display: inline-block;
-			//border-top: 5px solid $color-border;
 			border-left: 1px dotted $color-border;
+			&:first-child {
+				border-bottom: 3px solid #ff7f7f;
+			}
+			&:nth-child(2) {
+				border-bottom: 3px solid #7f7fff;
+			}
+			&:nth-child(3) {
+				border-bottom: 3px solid #bf7fff;
+			}
+			&:nth-child(4) {
+				border-bottom: 3px solid #7fbfff;
+			}
 			&:last-child {
 				border-right: 1px dotted $color-border;
+				border-bottom: 3px solid #ffbf7f;
 			}
 			a {
 				display: block;
@@ -101,7 +114,7 @@ a {
 ****************************************************/
 /* 汎用 */
 #main {
-	width: 860px;
+	width: $size-main;
 	float: left;
 	margin-right: 20px;
 	h2 {
@@ -113,7 +126,7 @@ a {
 		margin-bottom: 20px;
 	}
 	.searchArea {
-		width: 860px;
+		width: $size-main;
 		height: 100px;
 	}
 	section:not(.slider) {
@@ -121,17 +134,40 @@ a {
 		ul {
 			display: flex;
 			margin-bottom: 20px;
-			.animelist & {
-				/* リストページの場合 */
-				flex-wrap: wrap;
-				li {
-					margin-bottom: 30px;
-				}
-			} 
 		}
 		li {
 			flex: 1;
-			text-align: center;	
+			text-align: center;
+			font-size: 14px;
+			img {
+				margin-bottom: 5px;
+			}
+		}
+		&.animeListArea {
+			ul {
+				display: block;
+				overflow: hidden;
+			}
+			li {
+				width: $size-main / 4;
+				float: left;
+				font-size: 12px;
+				margin-bottom: 20px;
+				img {
+					width: 200px;
+					height: auto;
+				}
+			}
+		}
+		&.animeCharaArea {
+			ul {
+				display: block;
+				overflow: hidden;
+			}
+			li {
+				width: $size-main / 5;
+				float: left;
+			}
 		}
 	}
 }
@@ -153,6 +189,36 @@ a {
 	left: 0;
 }
 
+/* アニメ詳細ページ */
+.animeDataArea {
+	.mainBanner,
+	.animeDescription {
+		margin-bottom: 20px;
+		line-height: 1.5;
+	}	
+}
+
+.animeDatailInfo {
+	display: flex;
+	iframe {
+		margin-right: 20px;
+	}
+	dl {
+		flex: 1;
+		dt {
+			margin-bottom: 5px;
+			font-weight: bold;
+		}
+		dd {
+			margin-bottom: 10px;
+			padding-bottom: 10px;
+			border-bottom: 1px dotted #666;
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
 
 /* サイドバー
 ****************************************************/
