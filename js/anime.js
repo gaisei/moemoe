@@ -1,6 +1,6 @@
-var Animeid;
-var Nickname;
-var Type;
+var Animeid = '';
+var Nickname = '';
+var Type = '';
 
 /* アニメ詳細
 ****************************************************/
@@ -38,8 +38,8 @@ var AnimeDetail = React.createClass({
 						start = start.slice(0, 4) + '/' + start.slice(4, start.length);
 						return (
 							<div key={'key_' + i}>
-								<p className="mainBanner"><img src={animeMainBanner} width="860" height="200" alt={result.name} /></p>
 								<h2 className="titleBar"><span>{result.name}</span></h2>
+								<p className="mainBanner"><img src={animeMainBanner} width="860" height="200" alt={result.name} /></p>
 								<p className="animeDescription">{result.description}</p>
 								<div className="animeDatailInfo">
 									<iframe width="500" height="281" src={youtube} frameborder="0" allowfullscreen></iframe>

@@ -75,7 +75,7 @@
 		"kyakuhon": "ふでやすかずゆき",
 		"production": "J.C.STAFF",
 		"youtube": "T1qdOcu04rU",
-		"type": "days"
+		"type": "comedy"
 	},
 	{
 		"id": 7,
@@ -89,5 +89,18 @@
 		"production": "動画工房",
 		"youtube": "aE01TV_xqHs",
 		"type": "days"
+	},
+	{
+		"id": 8,
+		"name": "ラブライブ!サンシャイン!!",
+		"nickname": "lovelivesunshine",
+		"description": "静岡県沼津市の海辺の町、内浦にある私立浦の星女学院。駿河湾のかたすみにある小さな高校で2年生の高海千歌を中心とした9人の少女たちが、大きな夢を抱いて立ち上がる。",
+		"start": 201607,
+		"kantoku": "酒井和男",
+		"gensaku": "矢立肇",
+		"kyakuhon": "花田十輝",
+		"production": "サンライズ",
+		"youtube": "1XAIRLi3eHw",
+		"type": "music"
 	}
 ]

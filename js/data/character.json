@@ -75,5 +75,47 @@
 		"charaid": 1,
 		"name": "シャーロック・シェリンフォード",
 		"engname": "sherlock"
+	},
+	{
+		"id": 12,
+		"animeid": 1,
+		"charaid": 3,
+		"name": "ココア",
+		"engname": "kokoa"
+	},
+	{
+		"id": 13,
+		"animeid": 1,
+		"charaid": 4,
+		"name": "リゼ",
+		"engname": "rize"
+	},
+	{
+		"id": 14,
+		"animeid": 1,
+		"charaid": 5,
+		"name": "千夜",
+		"engname": "chiya"
+	},
+	{
+		"id": 15,
+		"animeid": 8,
+		"charaid": 1,
+		"name": "国木田花丸",
+		"engname": "kunikidahanamaru"
+	},
+	{
+		"id": 16,
+		"animeid": 8,
+		"charaid": 2,
+		"name": "津島善子",
+		"engname": "tsushimayoshiko"
+	},
+	{
+		"id": 17,
+		"animeid": 2,
+		"charaid": 2,
+		"name": "秋山優花里",
+		"engname": "akiyamayukari"
 	}
 ]
