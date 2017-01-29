@@ -13,4 +13,11 @@ $(function() {
 		// bxSliderの読み込みが終わったらコンテンツを表示する
 		$('.sliderContainer').css('visibility', 'visible');
 	}
+
+	/* ハッシュ変更時の画面遷移
+	****************************************************/
+	window.onhashchange = function() {
+		// これでいいわけがない
+		location.reload();
+	}
 });

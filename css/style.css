@@ -65,6 +65,7 @@ a img {
 }
 
 .headerContainer .headerID h1 {
+  color: #4f2702;
   font-family: 'Noto Sans JP';
   font-size: 28px;
   font-weight: bold;
@@ -149,6 +150,8 @@ h2 {
   padding: 10px;
   margin-bottom: 20px;
   border-radius: 4px;
+  background: -webkit-linear-gradient(#fff, #F4EDE6);
+  background: linear-gradient(#fff, #F4EDE6);
 }
 
 h2:before {
@@ -195,6 +198,9 @@ section:not(.slider).animeListArea ul {
 section:not(.slider).animeListArea li {
   width: 215px;
   float: left;
+}
+
+section:not(.slider).animeListArea li {
   font-size: 12px;
   margin-bottom: 20px;
 }
@@ -213,6 +219,16 @@ section:not(.slider).animeCharaArea ul {
 
 section:not(.slider).animeCharaArea li {
   width: 172px;
+  float: left;
+}
+
+section:not(.slider).animeSimilarArea ul {
+  display: block;
+  overflow: hidden;
+}
+
+section:not(.slider).animeSimilarArea li {
+  width: 286.66667px;
   float: left;
 }
 

@@ -8,7 +8,9 @@
 	border: 2px solid $color-h2-border;
 	padding: 10px;
 	margin-bottom: 20px;
-	border-radius: 4px;	
+	border-radius: 4px;
+	//background: linear-gradient(#F4EDE6, #E9DBCC);
+	background: linear-gradient(#fff, #F4EDE6);
 	&:before {
 		content: '';
 		border-left: 5px solid $color-h2-border-l;
@@ -58,4 +60,15 @@
 @mixin imgBorder {
 	padding: 2px;
 	border: 1px solid $color-imgborder;
+}
+
+@mixin imgArrange($column) {
+	ul {
+		display: block;
+		overflow: hidden;
+	}
+	li {
+		width: $size-main / $column;
+		float: left;
+	}
 }

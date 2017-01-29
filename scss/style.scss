@@ -58,6 +58,7 @@ a {
 		flex: 1;
 		align-self: center;
 		h1 {
+			color: #4f2702;
 			font-family: 'Noto Sans JP';
 			font-size: 28px;
 			font-weight: bold;
@@ -148,13 +149,8 @@ section:not(.slider) {
 		}
 	}
 	&.animeListArea {
-		ul {
-			display: block;
-			overflow: hidden;
-		}
+		@include imgArrange(4);
 		li {
-			width: $size-main / 4;
-			float: left;
 			font-size: 12px;
 			margin-bottom: 20px;
 			img {
@@ -165,14 +161,10 @@ section:not(.slider) {
 		}
 	}
 	&.animeCharaArea {
-		ul {
-			display: block;
-			overflow: hidden;
-		}
-		li {
-			width: $size-main / 5;
-			float: left;
-		}
+		@include imgArrange(5);
+	}
+	&.animeSimilarArea {
+		@include imgArrange(3);
 	}
 }
 
@@ -204,7 +196,7 @@ section:not(.slider) {
 	.animeDescription {
 		margin-bottom: 20px;
 		line-height: 1.5;
-	}	
+	}
 }
 
 .animeDatailInfo {
