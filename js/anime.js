@@ -90,7 +90,7 @@ var AnimeChara = React.createClass({
 		var charaList = this.state.data.map(function(result, i) {
 			if(result.animeid == Animeid) {
 				var charaThumbnail = "../images/anime/" + Animeid + "/character/" + result.charaid + ".jpg";
-				var charaUrl = "../character/#" + Nickname + "/" + result.engname;
+				var charaUrl = "../character/#" + Nickname + "/" + result.charaid;
 				return (
 					<li key={'key_' + i}>
 						<a href={charaUrl}>

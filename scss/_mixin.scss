@@ -66,9 +66,22 @@
 	ul {
 		display: block;
 		overflow: hidden;
+		margin-bottom: 20px;
 	}
 	li {
+		font-size: 14px;
 		width: $size-main / $column;
+		text-align: center;
 		float: left;
+		img {
+			@include imgBorder;
+			margin-bottom: 5px;
+		}
 	}
+}
+
+@mixin imgNameSsize {
+	font-size: 12px;
+	margin-bottom: 20px;
+	white-space: nowrap;
 }

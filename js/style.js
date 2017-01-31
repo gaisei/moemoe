@@ -20,4 +20,5 @@ $(function() {
 		// これでいいわけがない
 		location.reload();
 	}
+
 });

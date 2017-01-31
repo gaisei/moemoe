@@ -20,7 +20,7 @@ var AnimeList = React.createClass({
 	},
 	render: function() {
 		var stateData = this.state.data;
-		var animeList = stateData.reverse();
+		var animeList = stateData.reverse().slice(0, 16); /* 初期表示 登録順16件 */
 		return (
 			<ul>
 				{animeList.map(function(result, i) {

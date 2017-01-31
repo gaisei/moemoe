@@ -1,3 +1,5 @@
+var AnimeData = ''; /* anime.jsonのデータ */
+
 /* 新着アニメ情報
 ****************************************************/
 var NewAnimeInfo = React.createClass({
@@ -19,24 +21,25 @@ var NewAnimeInfo = React.createClass({
 		});
 	},
 	render: function() {
-		var stateData = this.state.data;
-		var newAnime3 = stateData.reverse().slice(0, 3);
+		AnimeData = this.state.data;
+		var newAnime3 = AnimeData.reverse().slice(0, 3);
 		return (
 			<ul>
 				{newAnime3.map(function(result, i) {
-				var newAnimeThumbnail = "images/anime/" + result.id + "/thumbnail.jpg";
-				var animeUrl = "anime/#" + result.nickname;
-					return (
-						<li key={'key_' + i}>
-							<a href={animeUrl}>
-								<figure>
-									<img src={newAnimeThumbnail} alt={result.name} width="250" height="250" />
-									<figcaption>{result.name}</figcaption>
-								</figure>
-							</a>
-						</li>
-					);
-				})}
+					var newAnimeThumbnail = "images/anime/" + result.id + "/thumbnail.jpg";
+					var animeUrl = "anime/#" + result.nickname;
+						return (
+							<li key={'key_' + i}>
+								<a href={animeUrl}>
+									<figure>
+										<img src={newAnimeThumbnail} alt={result.name} width="250" height="250" />
+										<figcaption>{result.name}</figcaption>
+									</figure>
+								</a>
+							</li>
+						);
+					})
+				}
 			</ul>
 		);
 	}
@@ -75,15 +78,23 @@ var NewCharaInfo = React.createClass({
 		return (
 			<ul>
 				{newChara3.map(function(result, i) {
+					var animeid = result.animeid;
+					var animeName;
+					for(var j = 0; j < AnimeData.length; j++) {
+						if(AnimeData[j].id == animeid) {
+							animeName = AnimeData[j].nickname;
+						}
+					}
 					if(result.animeid !== null) {
 						var newCharaThumbnail = "images/anime/" + result.animeid + "/character/" + result.charaid + ".jpg";
 					} else {
 						/* nullにしてるのはアニメ用画像を作るのが面倒だったから。あとでちゃんと作る。 */
 						var newCharaThumbnail = "images/anime/null/character/" + result.charaid + ".jpg";
 					}
+					var charaUrl = "../character/#" + animeName + "/" + result.charaid;
 					return (
 						<li key={'key_' + i}>
-							<a href="#">
+							<a href={charaUrl}>
 								<figure>
 									<img src={newCharaThumbnail} alt={result.name} width="150" height="200" />
 									<figcaption>{result.name}</figcaption>

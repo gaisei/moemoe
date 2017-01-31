@@ -36,7 +36,7 @@ a img {
 ****************************************************/
 #header {
   width: 100%;
-  height: 100px;
+  height: 80px;
   background: #fff;
   border-top: 3px solid #fc7dc4;
   box-shadow: 0px 4px 3px -3px rgba(0, 0, 0, 0.3);
@@ -65,11 +65,14 @@ a img {
 }
 
 .headerContainer .headerID h1 {
-  color: #4f2702;
   font-family: 'Noto Sans JP';
   font-size: 28px;
   font-weight: bold;
   margin-bottom: 10px;
+}
+
+.headerContainer .headerID h1 a {
+  color: #4f2702;
 }
 
 .headerContainer .headerID p {
@@ -126,7 +129,7 @@ a img {
 ****************************************************/
 #content {
   width: 1160px;
-  margin: 100px auto 0;
+  margin: 80px auto 0;
   padding: 20px;
   background: #fff;
   overflow: hidden;
@@ -167,69 +170,141 @@ h2:before {
 
 section:not(.slider) {
   margin-bottom: 30px;
+  /* TOPページ */
+  /* アニメ一覧ページ */
+  /* キャラクター一覧ページ */
+  /* アニメ詳細ページ */
 }
 
-section:not(.slider) ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+section:not(.slider) .newAnimeList ul {
+  display: block;
+  overflow: hidden;
   margin-bottom: 20px;
 }
 
-section:not(.slider) li {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  text-align: center;
+section:not(.slider) .newAnimeList li {
   font-size: 14px;
+  width: 286.66667px;
+  text-align: center;
+  float: left;
 }
 
-section:not(.slider) li img {
-  margin-bottom: 5px;
+section:not(.slider) .newAnimeList li img {
   padding: 2px;
   border: 1px solid #dcdcdc;
+  margin-bottom: 5px;
+}
+
+section:not(.slider) .newCharaList ul, section:not(.slider).checkedChara ul {
+  display: block;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+section:not(.slider) .newCharaList li, section:not(.slider).checkedChara li {
+  font-size: 14px;
+  width: 172px;
+  text-align: center;
+  float: left;
+}
+
+section:not(.slider) .newCharaList li img, section:not(.slider).checkedChara li img {
+  padding: 2px;
+  border: 1px solid #dcdcdc;
+  margin-bottom: 5px;
 }
 
 section:not(.slider).animeListArea ul {
   display: block;
   overflow: hidden;
+  margin-bottom: 20px;
 }
 
 section:not(.slider).animeListArea li {
+  font-size: 14px;
   width: 215px;
+  text-align: center;
   float: left;
+}
+
+section:not(.slider).animeListArea li img {
+  padding: 2px;
+  border: 1px solid #dcdcdc;
+  margin-bottom: 5px;
 }
 
 section:not(.slider).animeListArea li {
   font-size: 12px;
   margin-bottom: 20px;
+  white-space: nowrap;
 }
 
 section:not(.slider).animeListArea li img {
   width: 200px;
   height: auto;
+}
+
+section:not(.slider).charaListArea ul {
+  display: block;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+section:not(.slider).charaListArea li {
+  font-size: 14px;
+  width: 172px;
+  text-align: center;
+  float: left;
+}
+
+section:not(.slider).charaListArea li img {
   padding: 2px;
   border: 1px solid #dcdcdc;
+  margin-bottom: 5px;
+}
+
+section:not(.slider).charaListArea li {
+  font-size: 12px;
+  margin-bottom: 20px;
+  white-space: nowrap;
 }
 
 section:not(.slider).animeCharaArea ul {
   display: block;
   overflow: hidden;
+  margin-bottom: 20px;
 }
 
 section:not(.slider).animeCharaArea li {
+  font-size: 14px;
   width: 172px;
+  text-align: center;
   float: left;
+}
+
+section:not(.slider).animeCharaArea li img {
+  padding: 2px;
+  border: 1px solid #dcdcdc;
+  margin-bottom: 5px;
 }
 
 section:not(.slider).animeSimilarArea ul {
   display: block;
   overflow: hidden;
+  margin-bottom: 20px;
 }
 
 section:not(.slider).animeSimilarArea li {
+  font-size: 14px;
   width: 286.66667px;
+  text-align: center;
   float: left;
+}
+
+section:not(.slider).animeSimilarArea li img {
+  padding: 2px;
+  border: 1px solid #dcdcdc;
+  margin-bottom: 5px;
 }
 
 /* スライダー */
