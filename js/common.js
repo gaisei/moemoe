@@ -1,14 +1,23 @@
+/* グローバルリンク
+****************************************************/
+var local = window.location;
+var rootUrl = local.origin;
+
+/* 本番サーバーに対する一次対応 */
+if(rootUrl.indexOf('gaisei') !== -1) {
+	rootUrl = rootUrl + '/works/moemoe';
+}
+
+rootUrl = rootUrl + '/';
+
 /* ヘッダー
 ****************************************************/
 var Header = React.createClass({
 	displayName: 'Header',
-	//menuList: [{'TOP':'', 'アニメ':'animelist', 'キャラクター':'characterlist', 'ランキング':'ranking', 'お問い合わせ':'contact'}],
 	render: function() {
-		var local = window.location;
-		var rootUrl = local.origin;
-		var menuList = [['TOP',''], ['アニメ','animelist'], ['キャラクター','characterlist'], ['ランキング','ranking'], ['お問い合わせ','contact']];
+		var menuList = [['TOP',''], ['アニメ','animelist/'], ['キャラクター','characterlist/'], ['ランキング','ranking/'], ['お問い合わせ','contact/']];
 		var menuLists = menuList.map(function(val, i) {
-			var url = rootUrl + '/' + val[1];
+			var url = rootUrl + val[1];
 			return (
 				<li key={'key_' + i}><a href={url}>{val[0]}</a></li>
 			);
@@ -39,11 +48,10 @@ var Ad = React.createClass({
 	displayName: 'Ad',
 	adList: ['strikewitches', 'lovelivesunshine', 'fatestaynight'],
 	render: function() {
-		var rootpath = 'http://gaisei.net/works/moemoe/'; /* 苦肉の策。もっとスマートなやり方を考えたい */
 		var adImage = this.adList[Math.floor(Math.random() * this.adList.length)];
-		var adImageSrc = rootpath + 'images/ad/' + adImage + '.jpg';
+		var adImageSrc = rootUrl + 'images/ad/' + adImage + '.jpg';
 		return (
-			<a href="#"><img src={adImageSrc} width="280" height="280" alt="広告" /></a>
+			<img src={adImageSrc} width="280" height="280" alt="広告" />
 		);
 	}
 });
