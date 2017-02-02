@@ -404,6 +404,48 @@ section:not(.slider).animeSimilarArea li img {
   margin-bottom: 0;
 }
 
+/* キャラクター詳細ページ */
+.charaDataArea h2.titleBar {
+  font-size: 20px;
+  color: #fff;
+  position: relative;
+  padding: 8px;
+  background: #BE956A;
+  border-left: none;
+  border-bottom: none;
+  margin-bottom: 40px;
+  border-radius: 0;
+  text-shadow: 2px 2px 1px black;
+}
+
+.charaDataArea h2.titleBar:before, .charaDataArea h2.titleBar:after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  border-style: solid;
+  border-color: transparent;
+}
+
+.charaDataArea h2.titleBar:before {
+  left: 0;
+  border-width: 0 20px 20px 0;
+  border-right-color: #4F2702;
+}
+
+.charaDataArea h2.titleBar:after {
+  right: 0;
+  border-style: solid;
+  border-width: 20px 20px 0 0;
+  border-top-color: #4F2702;
+}
+
+.charaDataArea h2.titleBar span {
+  display: block;
+  border: 1px dashed #633B17;
+  padding: 15px;
+  border-radius: 4px;
+}
+
 /* サイドバー
 ****************************************************/
 /* 汎用 */
