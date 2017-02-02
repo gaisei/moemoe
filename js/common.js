@@ -1,29 +1,22 @@
-/* リンク
-****************************************************/
-var local = window.location;
-	var url = local.origin;
-	url + getDir(local); // 現在のディレクトリ
-	//url + getDir(local,1); // 1つ上のディレクトリ
-
-function getDir(place, n) {
-	return place.pathname.replace(new RegExp("(?:\\\/+[^\\\/]*){0," + ((n || 0) + 1) + "}$"), "/");
-}
-
 /* ヘッダー
 ****************************************************/
 var Header = React.createClass({
 	displayName: 'Header',
-	menuList: ['TOP', 'アニメ', 'キャラクター', 'ランキング', 'お問い合わせ'],
+	//menuList: [{'TOP':'', 'アニメ':'animelist', 'キャラクター':'characterlist', 'ランキング':'ranking', 'お問い合わせ':'contact'}],
 	render: function() {
-		var menuLists = this.menuList.map(function(val, i) {
+		var local = window.location;
+		var rootUrl = local.origin;
+		var menuList = [['TOP',''], ['アニメ','animelist'], ['キャラクター','characterlist'], ['ランキング','ranking'], ['お問い合わせ','contact']];
+		var menuLists = menuList.map(function(val, i) {
+			var url = rootUrl + '/' + val[1];
 			return (
-				<li key={'key_' + i}><a href="#">{val}</a></li>
+				<li key={'key_' + i}><a href={url}>{val[0]}</a></li>
 			);
 		});
 		return (
 			<div className="headerContainer">
 				<div className="headerID">
-					<h1><a href="#">{this.props.title}</a></h1>
+					<h1><a href={rootUrl}>{this.props.title}</a></h1>
 					<p>{this.props.concept}</p>
 				</div>
 				<nav className="headerMenu">
