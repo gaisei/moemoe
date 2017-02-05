@@ -1,4 +1,5 @@
-var AnimeData = ''; /* anime.jsonのデータ */
+var AnimeData = []; /* anime.jsonのデータ */
+var CharaData = []; /* character.jsonのデータ */
 
 /* 新着アニメ情報
 ****************************************************/
@@ -73,8 +74,8 @@ var NewCharaInfo = React.createClass({
 		});
 	},
 	render: function() {
-		var stateData = this.state.data
-		var newChara3 = stateData.reverse().slice(0, 5);
+		CharaData = this.state.data;
+		var newChara3 = CharaData.reverse().slice(0, 5);
 		return (
 			<ul>
 				{newChara3.map(function(result, i) {
@@ -91,7 +92,7 @@ var NewCharaInfo = React.createClass({
 						/* nullにしてるのはアニメ用画像を作るのが面倒だったから。あとでちゃんと作る。 */
 						var newCharaThumbnail = "images/anime/null/character/" + result.charaid + ".jpg";
 					}
-					var charaUrl = "../character/#" + animeName + "/" + result.charaid;
+					var charaUrl = "character/#" + animeName + "/" + result.charaid;
 					return (
 						<li key={'key_' + i}>
 							<a href={charaUrl}>
@@ -112,3 +113,84 @@ ReactDOM.render(
 	<NewCharaInfo url="js/data/character.json" />,
 	document.querySelector('.newCharaList')
 );
+
+/* 最近チェックしたキャラクター
+****************************************************/
+var CheckedChara = React.createClass({
+	displayName: 'CheckedChara',
+	getInitialState: function() {
+		return {data: []};
+	},
+	getStorageData: function() {
+		return JSON.parse(localStorage.getItem('checkedList'));
+	},
+	render: function() {
+		var checkedList = this.getStorageData();
+		{checkedList.map(function(res, i) {
+	
+		})}
+
+		var list = [];
+		for(var i = 0; i < checkedList.length; i++) {
+			var charaName = '';
+			var animeID = '';
+			var charaID = '';
+			var animeName = '';
+			list.push(
+				<li key={'key_' + i}>
+					<a href={i}>
+						<figure>
+							{<img src={i} alt={i} width="150" height="200" />}
+							<figcaption>{i}</figcaption>
+						</figure>
+					</a>
+				</li>
+			);
+		}
+		return (
+			<ul>
+				{list}
+			</ul>
+		);
+		/*for(var i = 0; i < checkedList.length; i++) {
+			var charaName = '';
+			var animeID = '';
+			var charaID = '';
+			var animeName = '';
+			for(var j = 0; j < CharaData.length; j++) {
+				if(checkedList[i] == CharaData[j].id) {
+					charaName = CharaData[j].name;
+					animeID = CharaData[j].animeid;
+					charaID = CharaData[j].charaid;
+					for(var k = 0; k < AnimeData.length; k++) {
+						if(animeID == AnimeData[k].id) {
+							animeName = AnimeData[k].nickname;
+						}
+					}
+					var charaUrl = "character/#" + animeName + "/" + charaID;
+					var charaThumbnail = "images/anime/" + animeID + "/character/" + charaID + ".jpg";
+					return (
+						<li key={'key_' + i}>
+							<a href={charaUrl}>
+								<figure>
+									{<img src={charaThumbnail} alt={charaName} width="150" height="200" />}
+									<figcaption>{charaName}</figcaption>
+								</figure>
+							</a>
+						</li>
+					);
+				}
+			}
+		}*/
+	}
+});
+
+ReactDOM.render(
+	<CheckedChara />,
+	document.querySelector('.checkedCharaList')
+);
+
+
+
+
+

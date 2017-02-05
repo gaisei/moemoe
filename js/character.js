@@ -1,6 +1,8 @@
 var AnimeData = [];
 
-/* アニメ詳細
+var CharaID = '';
+
+/* キャラクター詳細
 ****************************************************/
 var CharaDetail = React.createClass({
 	displayName: 'CharaDetail',
@@ -25,6 +27,22 @@ var CharaDetail = React.createClass({
 			AnimeData = data;
 		});
 	},
+	setStorageData: function(cid) {
+		var checkedList;
+		checkedList = JSON.parse(localStorage.getItem('checkedList'));
+		// 空白を削除
+		if(!checkedList) checkedList = [];
+		checkedList = $.grep(checkedList, function(e) {
+			return e !== '';
+		});
+		// 重複チェック
+		if(checkedList.indexOf(CharaID) == -1) checkedList.unshift(CharaID);
+		console.log(checkedList.length);
+		// 最新5人分のデータにする
+		if(checkedList.length > 5) checkedList = checkedList.slice(0, 5);
+
+		localStorage.setItem('checkedList', JSON.stringify(checkedList));
+	},
 	render: function() {
 		// ハッシュ値からアニメ名とキャラのidを分離
 		var hash = location.hash;
@@ -45,6 +63,7 @@ var CharaDetail = React.createClass({
 			<div>
 				{this.state.data.map(function(result, i) {
 					if(result.animeid == animeId && result.charaid == hash[1]) {
+						CharaID = result.id;
 						var charaThumbnail = "../images/anime/" + result.animeid + "/character/" + result.charaid +  ".jpg";
 						var animeUrl = "../anime/#" + animeNickName;
 						return (
@@ -64,9 +83,11 @@ var CharaDetail = React.createClass({
 						);
 					}
 				})}
+				{this.setStorageData(CharaID)}
 			</div>
 		);
 	}
+
 });
 
 ReactDOM.render(

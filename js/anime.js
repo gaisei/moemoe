@@ -177,6 +177,10 @@ var AnimeSimilar = React.createClass({
 		similarList = this.deleteUndefined(similarList);
 		similarList = this.shuffleArray(similarList);
 		similarList = similarList.slice(0, 3);
+		if(similarList.length < 1) {
+			similarList = '';
+			similarList = 'いまのとこないです';
+		}
 		return (
 			<div>
 				<h2>{this.props.title}</h2>
