@@ -4,7 +4,7 @@
 		"animeid": 1,
 		"charaid": 1,
 		"name": "シャロ",
-		"engname": "syaro",
+		"hiragana": "しゃろ",
 		"height": 151,
 		"size": "",
 		"bloodtype": "A",
@@ -16,31 +16,47 @@
 	},
 	{
 		"id": 2,
-		"animeid": null,
+		"animeid": 9,
 		"charaid": 2,
 		"name": "レム",
-		"engname": "rem"
+		"hiragana": "れむ",
+		"height": 154,
+		"size": "",
+		"bloodtype": "",
+		"birthday": "2月2日",
+		"hobby": "演劇鑑賞・詩文",
+		"type": "imouto",
+		"profile": "ロズワールに仕える水色髪ショートのメイド少女。一人称は「レム」。亜人の一種である「鬼」の生き残り。姉のラムとは対照的に右目に前髪が掛かっている。鎖付きのモーニングスター（フレイル型）をメインに使いつつ、生まれた隙は格闘でカバーするパワフルな戦闘スタイル。また、水系統の魔法で回復も攻防もバランス良くこなす。",
+		"cv": "水瀬いのり"
 	},
 	{
 		"id": 3,
-		"animeid": null,
+		"animeid": 8,
 		"charaid": 3,
 		"name": "渡辺曜",
-		"engname": "watanabeyou"
+		"hiragana": "わたなべよう",
+		"height": 157,
+		"size": "B82/W57/H81",
+		"bloodtype": "AB",
+		"birthday": "4月17日",
+		"hobby": "高飛び込み",
+		"type": "genki",
+		"profile": "スポーツが得意で高飛び込みの選手をしている。高飛び込みの得意種目は「前逆宙返り3回半抱え型」。日課が筋トレとランニングという肉体派。父親がフェリー（おそらく駿河湾フェリー）の船長をしており、その跡を継ぐのが夢。自宅は内浦ではなく沼津駅近くの川（狩野川?）沿いにあり、かなり大きめ。 ",
+		"cv": "斉藤朱夏"
 	},
 	{
 		"id": 4,
 		"animeid": null,
 		"charaid": 4,
 		"name": "御坂美琴",
-		"engname": "misakamikoto"
+		"hiragana": "misakamikoto"
 	},
 	{
 		"id": 5,
 		"animeid": 1,
 		"charaid": 2,
 		"name": "チノ",
-		"engname": "chino",
+		"hiragana": "ちの",
 		"height": 144,
 		"size": "",
 		"bloodtype": "AB",
@@ -55,49 +71,49 @@
 		"animeid": 4,
 		"charaid": 1,
 		"name": "あおい",
-		"engname": "aoi"
+		"hiragana": "あおい"
 	},
 	{
 		"id": 7,
 		"animeid": 7,
 		"charaid": 1,
 		"name": "あかり",
-		"engname": "akari"
+		"hiragana": "あかり"
 	},
 	{
 		"id": 8,
 		"animeid": 2,
 		"charaid": 1,
 		"name": "西住みほ",
-		"engname": "nishizumimiho"
+		"hiragana": "にしずみみほ"
 	},
 	{
 		"id": 9,
 		"animeid": 3,
 		"charaid": 1,
 		"name": "種島ぽぷら",
-		"engname": "taneshimaporura"
+		"hiragana": "たねしまぽぷら"
 	},
 	{
 		"id": 10,
 		"animeid": 5,
 		"charaid": 1,
 		"name": "鹿目まどか",
-		"engname": "kanamemadoka"
+		"hiragana": "かなめまどか"
 	},
 	{
 		"id": 11,
 		"animeid": 6,
 		"charaid": 1,
 		"name": "シャーロック・シェリンフォード",
-		"engname": "sherlock"
+		"hiragana": "しゃーろっく"
 	},
 	{
 		"id": 12,
 		"animeid": 1,
 		"charaid": 3,
 		"name": "ココア",
-		"engname": "kokoa",
+		"hiragana": "ここあ",
 		"height": 154,
 		"size": "",
 		"bloodtype": "B",
@@ -112,7 +128,7 @@
 		"animeid": 1,
 		"charaid": 4,
 		"name": "リゼ",
-		"engname": "rize",
+		"hiragana": "りぜ",
 		"height": 160,
 		"size": "",
 		"bloodtype": "A",
@@ -127,7 +143,7 @@
 		"animeid": 1,
 		"charaid": 5,
 		"name": "千夜",
-		"engname": "chiya",
+		"hiragana": "ちや",
 		"height": 157,
 		"size": "",
 		"bloodtype": "O",
@@ -142,7 +158,7 @@
 		"animeid": 8,
 		"charaid": 1,
 		"name": "国木田花丸",
-		"engname": "kunikidahanamaru",
+		"hiragana": "くにきだはなまる",
 		"height": 152,
 		"size": "B83/W57/H83",
 		"bloodtype": "O",
@@ -157,7 +173,7 @@
 		"animeid": 8,
 		"charaid": 2,
 		"name": "津島善子",
-		"engname": "tsushimayoshiko",
+		"hiragana": "つしまよしこ",
 		"height": 156,
 		"size": "B79/W58/H80",
 		"bloodtype": "O",
@@ -172,6 +188,21 @@
 		"animeid": 2,
 		"charaid": 2,
 		"name": "秋山優花里",
-		"engname": "akiyamayukari"
+		"hiragana": "あきやまゆかり"
+	},
+	{
+		"id": 18,
+		"animeid": 9,
+		"charaid": 1,
+		"name": "ラム",
+		"hiragana": "らむ",
+		"height": 154,
+		"size": "",
+		"bloodtype": "",
+		"birthday": "2月2日",
+		"hobby": "",
+		"type": "tsundere",
+		"profile": "桃色髪ショートのメイド少女。妹のレムとは対照的に左目に前髪がかかっている。レムが慇懃無礼な毒舌と形容されるなら、姉のラムは傲岸不遜な毒舌担当と紹介される。口の悪さとは裏腹に、本質は面倒見が良く、レムからは「優しすぎる」と形容されるほど。",
+		"cv": "村川梨衣"
 	}
 ]

@@ -37,7 +37,6 @@ var CharaDetail = React.createClass({
 		});
 		// 重複チェック
 		if(checkedList.indexOf(CharaID) == -1) checkedList.unshift(CharaID);
-		console.log(checkedList.length);
 		// 最新5人分のデータにする
 		if(checkedList.length > 5) checkedList = checkedList.slice(0, 5);
 

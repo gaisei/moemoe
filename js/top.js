@@ -1,5 +1,5 @@
-var AnimeData = []; /* anime.jsonのデータ */
-var CharaData = []; /* character.jsonのデータ */
+var AnimeData; /* anime.jsonのデータ */
+var CharaData; /* character.jsonのデータ */
 
 /* 新着アニメ情報
 ****************************************************/
@@ -12,6 +12,7 @@ var NewAnimeInfo = React.createClass({
 		$.ajax({
 			url: this.props.url,
 			dataType: 'json',
+			async: false,
 			cache: false,
 			success: function(data) {
 				this.setState({data: data});
@@ -64,6 +65,7 @@ var NewCharaInfo = React.createClass({
 		$.ajax({
 			url: this.props.url,
 			dataType: 'json',
+			async: false,
 			cache: false,
 			success: function(data) {
 				this.setState({data: data});
@@ -126,62 +128,40 @@ var CheckedChara = React.createClass({
 	},
 	render: function() {
 		var checkedList = this.getStorageData();
-		{checkedList.map(function(res, i) {
-	
-		})}
-
-		var list = [];
-		for(var i = 0; i < checkedList.length; i++) {
-			var charaName = '';
-			var animeID = '';
-			var charaID = '';
-			var animeName = '';
-			list.push(
-				<li key={'key_' + i}>
-					<a href={i}>
-						<figure>
-							{<img src={i} alt={i} width="150" height="200" />}
-							<figcaption>{i}</figcaption>
-						</figure>
-					</a>
-				</li>
-			);
-		}
-		return (
-			<ul>
-				{list}
-			</ul>
-		);
-		/*for(var i = 0; i < checkedList.length; i++) {
-			var charaName = '';
-			var animeID = '';
-			var charaID = '';
-			var animeName = '';
-			for(var j = 0; j < CharaData.length; j++) {
-				if(checkedList[i] == CharaData[j].id) {
-					charaName = CharaData[j].name;
-					animeID = CharaData[j].animeid;
-					charaID = CharaData[j].charaid;
-					for(var k = 0; k < AnimeData.length; k++) {
-						if(animeID == AnimeData[k].id) {
-							animeName = AnimeData[k].nickname;
+		if(checkedList == null) {
+			return (<p>まだないです。</p>);
+		} else {
+			return (
+				<ul>
+				{checkedList.map(function(result, i) {
+					for(var j = 0; j < CharaData.length; j++) {
+						if(checkedList[i] == CharaData[j].id) {
+							var charaName = CharaData[j].name;
+							var animeID = CharaData[j].animeid;
+							var charaID = CharaData[j].charaid;
+							for(var k = 0; k < AnimeData.length; k++) {
+								if(animeID == AnimeData[k].id) {
+									var animeName = AnimeData[k].nickname;
+									var charaUrl = "character/#" + animeName + "/" + charaID;
+									var charaThumbnail = "images/anime/" + animeID + "/character/" + charaID + ".jpg";
+									return (
+										<li key={'key_' + i}>
+											<a href={charaUrl}>
+												<figure>
+													{<img src={charaThumbnail} alt={charaName} width="150" height="200" />}
+													<figcaption>{charaName}</figcaption>
+												</figure>
+											</a>
+										</li>
+									);
+								}
+							}
 						}
 					}
-					var charaUrl = "character/#" + animeName + "/" + charaID;
-					var charaThumbnail = "images/anime/" + animeID + "/character/" + charaID + ".jpg";
-					return (
-						<li key={'key_' + i}>
-							<a href={charaUrl}>
-								<figure>
-									{<img src={charaThumbnail} alt={charaName} width="150" height="200" />}
-									<figcaption>{charaName}</figcaption>
-								</figure>
-							</a>
-						</li>
-					);
-				}
-			}
-		}*/
+				})}
+				</ul>
+			);
+		}
 	}
 });
 
@@ -189,8 +169,3 @@ ReactDOM.render(
 	<CheckedChara />,
 	document.querySelector('.checkedCharaList')
 );
-
-
-
-
-

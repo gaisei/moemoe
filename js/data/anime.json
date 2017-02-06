@@ -102,5 +102,18 @@
 		"production": "サンライズ",
 		"youtube": "1XAIRLi3eHw",
 		"type": "music"
+	},
+	{
+		"id": 9,
+		"name": "Re:ゼロから始める異世界生活",
+		"nickname": "rizero",
+		"description": "コンビニからの帰り道、突如として異世界へと召喚されてしまった少年、菜月昴。頼れるものなど何一つない異世界で、無力な少年が手にした唯一の力……。それは死して時間を巻き戻す《死に戻り》の力だった。",
+		"start": 201604,
+		"kantoku": "渡邊政治",
+		"gensaku": "長月達平",
+		"kyakuhon": "横谷昌宏",
+		"production": "WHITE FOX",
+		"youtube": "i7FuamxQnUI",
+		"type": "battle"
 	}
 ]
