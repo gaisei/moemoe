@@ -61,7 +61,7 @@
 		"gensaku": "Magica Quartet",
 		"kyakuhon": "虚淵玄",
 		"production": "シャフト",
-		"youtube": "Ts5nmhRgY5c",
+		"youtube": "POfOycet4bE",
 		"type": "battle"
 	},
 	{
@@ -114,6 +114,19 @@
 		"kyakuhon": "横谷昌宏",
 		"production": "WHITE FOX",
 		"youtube": "i7FuamxQnUI",
+		"type": "battle"
+	},
+	{
+		"id": 10,
+		"name": "とある科学の超電磁砲<レールガン>",
+		"nickname": "railgun",
+		"description": "180万人を超える学生が集い、超能力開発を受ける「学園都市」。その日常の裏側には、学生たちによる治安維持組織「風紀委員(ジャッジメント)」の活躍があった。しかし、彼らの目が届かぬ暗がりもある。裏路地で平和を乱す不良学生たち。その彼らを一筋の閃光が襲う。そこには、学園都市最強の電撃姫、『超電磁砲(レールガン)』御坂美琴の姿があった……。",
+		"start": 200910,
+		"kantoku": "長井龍雪",
+		"gensaku": "鎌池和馬、冬川基",
+		"kyakuhon": "水上清資",
+		"production": "J.C.STAFF",
+		"youtube": "YebDqAi-IHs",
 		"type": "battle"
 	}
 ]

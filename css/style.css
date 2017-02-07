@@ -32,6 +32,34 @@ a img {
   cursor: pointer;
 }
 
+.linkBtn {
+  text-align: center;
+}
+
+.linkBtn a {
+  width: 450px;
+  position: relative;
+  display: inline-block;
+  padding: 25px 0;
+  background: -webkit-linear-gradient(#fe5f95, #ff3f7f);
+  background: linear-gradient(#fe5f95, #ff3f7f);
+  border: 1px solid #fe3276;
+  border-radius: 4px;
+  color: #fff;
+  text-align: center;
+}
+
+.linkBtn a:after {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  bottom: 3px;
+  left: 3px;
+  content: '';
+  border: 2px dashed #fff;
+  border-radius: 4px;
+}
+
 /* ヘッダー
 ****************************************************/
 #header {
@@ -174,6 +202,7 @@ section:not(.slider) {
   /* アニメ一覧ページ */
   /* キャラクター一覧ページ */
   /* アニメ詳細ページ */
+  /* キャラクター詳細ページ */
 }
 
 section:not(.slider) .newAnimeList ul {
@@ -307,6 +336,25 @@ section:not(.slider).animeSimilarArea li img {
   margin-bottom: 5px;
 }
 
+section:not(.slider).charaSimilarArea ul {
+  display: block;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+section:not(.slider).charaSimilarArea li {
+  font-size: 14px;
+  width: 172px;
+  text-align: center;
+  float: left;
+}
+
+section:not(.slider).charaSimilarArea li img {
+  padding: 2px;
+  border: 1px solid #dcdcdc;
+  margin-bottom: 5px;
+}
+
 /* スライダー */
 .slider {
   width: 840px;
@@ -330,7 +378,7 @@ section:not(.slider).animeSimilarArea li img {
   font-size: 20px;
   color: #fff;
   position: relative;
-  padding: 8px;
+  padding: 5px;
   background: #BE956A;
   border-left: none;
   border-bottom: none;
@@ -409,7 +457,7 @@ section:not(.slider).animeSimilarArea li img {
   font-size: 20px;
   color: #fff;
   position: relative;
-  padding: 8px;
+  padding: 5px;
   background: #BE956A;
   border-left: none;
   border-bottom: none;
@@ -444,6 +492,33 @@ section:not(.slider).animeSimilarArea li img {
   border: 1px dashed #633B17;
   padding: 15px;
   border-radius: 4px;
+}
+
+.charaDataArea .charaDescription {
+  margin-bottom: 30px;
+}
+
+.charaDataArea .voteArea {
+  margin-bottom: 30px;
+}
+
+.charaDataArea table {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.charaDataArea table th, .charaDataArea table td {
+  width: 25%;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.charaDataArea table th {
+  background: #d1ffe8;
+}
+
+.charaDataArea table td {
+  background: #ffffe0;
 }
 
 /* サイドバー
