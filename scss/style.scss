@@ -88,7 +88,7 @@ a {
 			font-weight: bold;
 			margin-bottom: 10px;
 			a {
-				color: #4f2702;
+				color: $color-id;
 			}
 		}
 		p {
@@ -264,10 +264,66 @@ section:not(.slider) {
 	.charaDescription {
 		margin-bottom: 30px;
 	}
-	.voteArea {
+	.charaVoteArea {
+		display: flex;
 		margin-bottom: 30px;
+		.charaThumb {
+			width: 150px;
+		}
+		.vote {
+			width: $size-main - 150px;
+			margin-left: 40px;
+			position: relative;
+			background: #effff7;
+			border: 4px solid #c2e1f5;
+			border-radius: 6px;
+			padding: 20px 20px 10px;
+			&:after, &:before {
+				right: 100%;
+				top: 50%;
+				border: solid transparent;
+				content: " ";
+				height: 0;
+				width: 0;
+				position: absolute;
+				pointer-events: none;
+			}
+			&:after {
+				border-color: rgba(136, 183, 213, 0);
+				border-right-color: #effff7;
+				border-width: 20px;
+				margin-top: -20px;
+			}
+			&:before {
+				border-color: rgba(194, 225, 245, 0);
+				border-right-color: #c2e1f5;
+				border-width: 26px;
+				margin-top: -26px;
+			}
+			p {
+				margin-bottom: 20px;
+				padding: 0 0 20px;
+				text-align: center;
+				border-bottom: 2px solid #c2e1f5;
+			}
+			table {
+				width: 100%;
+				th, td {
+					width: 33%;
+				}
+				th {
+					color: $color-id;
+					font-weight: bold;
+				}
+				td {
+					text-align: center;
+					vertical-align: middle;
+					height: 90px;
+				}
+			}
+		}
 	}
-	table {
+	table.charaProfile {
 		width: 100%;
 		margin-bottom: 30px;
 		th, td {

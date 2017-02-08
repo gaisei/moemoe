@@ -71,15 +71,25 @@ var CharaDetail = React.createClass({
 						CharaType = result.type;
 						var charaThumbnail = "../images/anime/" + result.animeid + "/character/" + result.charaid +  ".jpg";
 						var animeUrl = "../anime/#" + animeNickName;
+						Object.keys(result).forEach(function(key) {
+							if(result[key] == '') result[key] = '-';
+						});
 						return (
 							<div key={'key_' + i}>
 								<h2 className="titleBar"><span>{CharaName} ({animeName})</span></h2>
 								<div className="charaDescription">{result.profile}</div>
-								<div className="voteArea">
-									<p><img src={charaThumbnail} alt={CharaName} width="150" height="200" /></p>
+								<div className="charaVoteArea">
+									<div className="charaThumb"><img src={charaThumbnail} alt={CharaName} width="150" height="200" /></div>
+									<div className="vote">
+										<p>私に投票してね！</p>
+										<table>
+											<tr><th>現在のランク</th><th>現在のポイント</th><th></th></tr>
+											<tr><td>10位</td><td>350pt</td><td>投票</td></tr>
+										</table>
+									</div>
 								</div>
-								<table>
-									<tr><th>身長</th><td>{result.height}</td><th>スリーサイズ</th><td>{result.size}</td></tr>
+								<table className="charaProfile">
+									<tr><th>身長</th><td>{result.height}cm</td><th>スリーサイズ</th><td>{result.size}</td></tr>
 									<tr><th>血液型</th><td>{result.bloodtype}型</td><th>誕生日</th><td>{result.birthday}</td></tr>
 									<tr><th>趣味</th><td>{result.hobby}</td><th>CV</th><td>{result.cv}</td></tr>
 								</table>

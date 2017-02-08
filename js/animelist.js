@@ -46,7 +46,3 @@ ReactDOM.render(
 	<AnimeList url="../js/data/anime.json" />,
 	document.querySelector('.animeListArea')
 );
-
-
-
-
