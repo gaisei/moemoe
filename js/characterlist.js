@@ -27,7 +27,7 @@ var CharaList = React.createClass({
 	},
 	render: function() {
 		var stateData = this.state.data;
-		var charaList = stateData.reverse().slice(0, 20); /* 初期表示 登録順20件 */
+		var charaList = stateData.reverse()/*.slice(0, 20)*/; /* 初期表示 登録順20件 */
 		this.getAnimeData();
 		return (
 			<ul>

@@ -128,5 +128,18 @@
 		"production": "J.C.STAFF",
 		"youtube": "YebDqAi-IHs",
 		"type": "battle"
+	},
+	{
+		"id": 11,
+		"name": "NEW GAME!",
+		"nickname": "newgame",
+		"description": "高校を卒業して、幼い頃に夢中になって遊んでいたゲームを作った制作会社「イーグルジャンプ」へ入社した青葉は、そこでそのゲームのキャラクターデザイナーを務めていた八神コウと出会う。憧れの人の下で働くことになった青葉は、初めてのお仕事に戸惑いながらも、コウを始め個性的な先輩社員に助けられながら少しずつ成長していく。",
+		"start": 201607,
+		"kantoku": "藤原佳幸",
+		"gensaku": "得能正太郎",
+		"kyakuhon": "志茂文彦",
+		"production": "動画工房",
+		"youtube": "XvWD1Cqx4X8",
+		"type": "days"
 	}
 ]

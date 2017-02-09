@@ -544,30 +544,55 @@ section:not(.slider).charaSimilarArea li img {
   margin-top: -26px;
 }
 
-.charaDataArea .charaVoteArea .vote p {
+.charaDataArea .charaVoteArea .vote .voteMsg {
   margin-bottom: 20px;
   padding: 0 0 20px;
   text-align: center;
   border-bottom: 2px solid #c2e1f5;
 }
 
-.charaDataArea .charaVoteArea .vote table {
-  width: 100%;
+.charaDataArea .charaVoteArea .vote div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.charaDataArea .charaVoteArea .vote table th, .charaDataArea .charaVoteArea .vote table td {
-  width: 33%;
+.charaDataArea .charaVoteArea .vote div table {
+  width: 66%;
 }
 
-.charaDataArea .charaVoteArea .vote table th {
+.charaDataArea .charaVoteArea .vote div table th {
   color: #4f2702;
   font-weight: bold;
 }
 
-.charaDataArea .charaVoteArea .vote table td {
+.charaDataArea .charaVoteArea .vote div table td {
+  font-size: 36px;
   text-align: center;
-  vertical-align: middle;
-  height: 90px;
+  vertical-align: bottom;
+  height: 70px;
+}
+
+.charaDataArea .charaVoteArea .vote div table td.voteBtn {
+  background: orange;
+  cursor: pointer;
+}
+
+.charaDataArea .charaVoteArea .vote div .voteBtn {
+  width: 33%;
+  text-align: center;
+}
+
+.charaDataArea .charaVoteArea .vote div .voteBtn span {
+  color: #fff;
+  background: orange;
+  display: inline-block;
+  padding: 35px 50px;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .charaDataArea table.charaProfile {

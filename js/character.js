@@ -46,6 +46,9 @@ var CharaDetail = React.createClass({
 
 		localStorage.setItem('checkedList', JSON.stringify(checkedList));
 	},
+	vote: function(e) {
+		alert('まだ作ってないので投票できません');
+	},
 	render: function() {
 		// ハッシュ値からアニメ名とキャラのidを分離
 		var hash = location.hash;
@@ -62,6 +65,7 @@ var CharaDetail = React.createClass({
 				animeNickName = AnimeData[i].nickname;
 			}
 		}
+		var _this = this;
 		return (
 			<div>
 				{this.state.data.map(function(result, i) {
@@ -81,11 +85,14 @@ var CharaDetail = React.createClass({
 								<div className="charaVoteArea">
 									<div className="charaThumb"><img src={charaThumbnail} alt={CharaName} width="150" height="200" /></div>
 									<div className="vote">
-										<p>私に投票してね！</p>
-										<table>
-											<tr><th>現在のランク</th><th>現在のポイント</th><th></th></tr>
-											<tr><td>10位</td><td>350pt</td><td>投票</td></tr>
-										</table>
+										<p className="voteMsg">私に投票してね！</p>
+										<div>
+											<table>
+												<tr><th>現在のランク</th><th>現在のポイント</th></tr>
+												<tr><td>10位</td><td>350pt</td></tr>
+											</table>
+											<p className="voteBtn" onClick={_this.vote}><span>投票する</span></p>
+										</div>
 									</div>
 								</div>
 								<table className="charaProfile">
@@ -96,6 +103,8 @@ var CharaDetail = React.createClass({
 								<p className="linkBtn"><a href={animeUrl}>「{animeName}」のページを見る</a></p>
 							</div>
 						);
+					} else {
+						return;
 					}
 				})}
 				{this.setStorageData(CharaID)}

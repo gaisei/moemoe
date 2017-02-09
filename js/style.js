@@ -21,19 +21,4 @@ $(function() {
 		location.reload();
 	}
 
-	/* キャッシュクリア
-	****************************************************/
-	var date = new Date();
-	var unixTimestamp = Math.floor( date.getTime() / 1000 );
-	// css
-	$('link').each(function() {
-		var href = $(this).attr('href') + '?ver=' + unixTimestamp;
-		$(this).attr('href', href);
-	});
-	// js
-	$('script').each(function() {
-		var src = $(this).attr('src') + '?ver=' + unixTimestamp;
-		$(this).attr('src', src);
-	});
-
 });

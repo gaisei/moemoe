@@ -300,25 +300,43 @@ section:not(.slider) {
 				border-width: 26px;
 				margin-top: -26px;
 			}
-			p {
+			.voteMsg {
 				margin-bottom: 20px;
 				padding: 0 0 20px;
 				text-align: center;
 				border-bottom: 2px solid #c2e1f5;
 			}
-			table {
-				width: 100%;
-				th, td {
+			div {
+				display: flex;
+				align-items: center;
+				table {
+					width: 66%;
+					th {
+						color: $color-id;
+						font-weight: bold;
+					}
+					td {
+						font-size: 36px;
+						text-align: center;
+						vertical-align: bottom;
+						height: 70px;
+						&.voteBtn {
+							background: orange;
+							cursor: pointer;
+						}
+					}
+				}
+				.voteBtn {
 					width: 33%;
-				}
-				th {
-					color: $color-id;
-					font-weight: bold;
-				}
-				td {
 					text-align: center;
-					vertical-align: middle;
-					height: 90px;
+					span {
+						color: #fff;
+						background: orange;
+						display: inline-block;
+						padding: 35px 50px;
+						border-radius: 4px;
+						cursor: pointer;
+					}
 				}
 			}
 		}
