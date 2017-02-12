@@ -46,8 +46,30 @@ var CharaDetail = React.createClass({
 
 		localStorage.setItem('checkedList', JSON.stringify(checkedList));
 	},
-	vote: function(e) {
-		alert('まだ作ってないので投票できません');
+	vote: function() {
+		$.ajax({
+			type: 'POST',
+			url: this.props.vote,
+			data: {charaid: CharaID},
+			success: function(data) {
+				var data = JSON.parse(data);
+				$('.voteRank span').hide().text(data[0]).fadeIn(1500);
+				$('.votePoint span').hide().text(data[1]).fadeIn(1500);
+			}
+		});
+		return false;
+	},
+	getPoint: function(cid) {
+		$.ajax({
+			type: 'POST',
+			url: this.props.getpoint,
+			data: {charaid: cid},
+			success: function(data) {
+				var data = JSON.parse(data);
+				$('.voteRank span').text(data[0]);
+				$('.votePoint span').text(data[1]);
+			}
+		});
 	},
 	render: function() {
 		// ハッシュ値からアニメ名とキャラのidを分離
@@ -89,7 +111,7 @@ var CharaDetail = React.createClass({
 										<div>
 											<table>
 												<tr><th>現在のランク</th><th>現在のポイント</th></tr>
-												<tr><td>10位</td><td>350pt</td></tr>
+												<tr><td className="voteRank"><span></span>位</td><td className="votePoint"><span></span>pt</td></tr>
 											</table>
 											<p className="voteBtn" onClick={_this.vote}><span>投票する</span></p>
 										</div>
@@ -107,6 +129,7 @@ var CharaDetail = React.createClass({
 						return;
 					}
 				})}
+				{this.getPoint(CharaID)}
 				{this.setStorageData(CharaID)}
 			</div>
 		);
@@ -115,7 +138,7 @@ var CharaDetail = React.createClass({
 });
 
 ReactDOM.render(
-	<CharaDetail url="../js/data/character.json" />,
+	<CharaDetail url="../js/data/character.json" vote="../js/php/vote.php" getpoint="../js/php/getpoint.php" />,
 	document.querySelector('.charaDataArea')
 );
 

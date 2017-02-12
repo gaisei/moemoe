@@ -176,7 +176,7 @@ var AnimeSimilar = React.createClass({
 		// ここもっとスマートにできないだろうか。。
 		similarList = this.deleteUndefined(similarList);
 		similarList = this.shuffleArray(similarList);
-		similarList = similarList.slice(0, 3);
+		similarList = similarList.slice(0, 4);
 		if(similarList.length < 1) {
 			similarList = '';
 			similarList = 'いまのとこないです';

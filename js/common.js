@@ -10,6 +10,9 @@ if(rootUrl.indexOf('gaisei') !== -1) {
 
 rootUrl = rootUrl + '/';
 
+var AnimeData;
+var CharaData;
+
 /* ヘッダー
 ****************************************************/
 var Header = React.createClass({
@@ -61,6 +64,82 @@ ReactDOM.render(
 	document.querySelector('.ad')
 );
 
+/* ランキングTOP5 */
+var RankingTop5 = React.createClass({
+	displayName: 'RankingTop5',
+	getInitialState: function() {
+		return {data: []};
+	},
+	getAnimeData: function() {
+		$.getJSON(rootUrl + 'js/data/anime.json', function(data) {
+			AnimeData = data;
+		});
+	},
+	getCharaData: function() {
+		$.getJSON(rootUrl + 'js/data/character.json', function(data) {
+			CharaData = data;
+		});
+	},
+	componentDidMount: function() {
+		$.ajax({
+			type: 'POST',
+			dataType: 'json',
+			url: rootUrl + 'js/php/top5.php',
+			success: function(data) {
+				this.setState({data: data});
+			}.bind(this),
+			error: function(xhr, status, err) {
+				console.error(this.props.url, status, err.toString());
+			}.bind(this)
+		});
+	},
+	render: function() {
+		this.getAnimeData();
+		this.getCharaData();
+		var top5Obj = this.state.data;
+		return (
+			<ul>
+				{this.state.data.map(function(result, i) {
+
+					var charaName, charaId, animeId, animeNickName;
+					var result = parseInt(result.id);
+					var point = top5Obj[i].point;
+
+					for(var j = 0; j < CharaData.length; j++) {
+						if(result == CharaData[j].id) {
+							charaName = CharaData[j].name;
+							charaId = CharaData[j].charaid;
+							animeId = CharaData[j].animeid;
+						}
+					}
+					for(var k = 0; k < AnimeData.length; k++) {
+						if(animeId == AnimeData[k].id) {
+							animeNickName = AnimeData[k].nickname;
+						}
+					}
+					var charaThumbnail = rootUrl + "images/anime/" + animeId + "/character/" + charaId +  ".jpg";
+					var charaUrl = rootUrl + "character/#" + animeNickName + "/" + charaId;
+					return (
+						<li key={'key_' + i}>
+							<a href={charaUrl}>
+								<img src={charaThumbnail} alt={charaName} width="150" height="200" />
+								<dl>
+									<dt>{charaName}</dt>
+									<dd>{point}pt</dd>
+								</dl>
+							</a>
+						</li>
+					);
+				})}
+			</ul>
+		);
+	}
+});
+
+ReactDOM.render(
+	<RankingTop5 />,
+	document.querySelector('.rankingTop5')
+);
 
 /* フッター
 ****************************************************/

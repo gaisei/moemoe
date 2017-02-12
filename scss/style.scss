@@ -191,13 +191,26 @@ section:not(.slider) {
 	/* アニメ詳細ページ */ 
 	&.animeCharaArea {
 		@include imgArrange(5);
+		li {
+			margin-bottom: 10px;
+		}
 	}
 	&.animeSimilarArea {
-		@include imgArrange(3);
+		@include imgArrange(4);
+		li {
+			@include imgNameSsize;
+			img {
+				width: 200px;
+				height: auto;
+			}
+		}
 	}
 	/* キャラクター詳細ページ */
 	&.charaSimilarArea {
 		@include imgArrange(5);
+		li {
+			margin-bottom: 10px;
+		}
 	}
 }
 
@@ -240,13 +253,14 @@ section:not(.slider) {
 	dl {
 		flex: 1;
 		dt {
+			color: $color-id;
 			margin-bottom: 5px;
 			font-weight: bold;
 		}
 		dd {
 			margin-bottom: 10px;
 			padding-bottom: 10px;
-			border-bottom: 1px dotted #666;
+			border-bottom: 1px dashed $color-id;
 			&:last-child {
 				margin-bottom: 0;
 			}

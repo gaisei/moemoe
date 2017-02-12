@@ -317,6 +317,10 @@ section:not(.slider).animeCharaArea li img {
   margin-bottom: 5px;
 }
 
+section:not(.slider).animeCharaArea li {
+  margin-bottom: 10px;
+}
+
 section:not(.slider).animeSimilarArea ul {
   display: block;
   overflow: hidden;
@@ -325,7 +329,7 @@ section:not(.slider).animeSimilarArea ul {
 
 section:not(.slider).animeSimilarArea li {
   font-size: 14px;
-  width: 286.66667px;
+  width: 215px;
   text-align: center;
   float: left;
 }
@@ -334,6 +338,17 @@ section:not(.slider).animeSimilarArea li img {
   padding: 2px;
   border: 1px solid #dcdcdc;
   margin-bottom: 5px;
+}
+
+section:not(.slider).animeSimilarArea li {
+  font-size: 12px;
+  margin-bottom: 20px;
+  white-space: nowrap;
+}
+
+section:not(.slider).animeSimilarArea li img {
+  width: 200px;
+  height: auto;
 }
 
 section:not(.slider).charaSimilarArea ul {
@@ -353,6 +368,10 @@ section:not(.slider).charaSimilarArea li img {
   padding: 2px;
   border: 1px solid #dcdcdc;
   margin-bottom: 5px;
+}
+
+section:not(.slider).charaSimilarArea li {
+  margin-bottom: 10px;
 }
 
 /* スライダー */
@@ -438,6 +457,7 @@ section:not(.slider).charaSimilarArea li img {
 }
 
 .animeDatailInfo dl dt {
+  color: #4f2702;
   margin-bottom: 5px;
   font-weight: bold;
 }
@@ -445,7 +465,7 @@ section:not(.slider).charaSimilarArea li img {
 .animeDatailInfo dl dd {
   margin-bottom: 10px;
   padding-bottom: 10px;
-  border-bottom: 1px dotted #666;
+  border-bottom: 1px dashed #4f2702;
 }
 
 .animeDatailInfo dl dd:last-child {
