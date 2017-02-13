@@ -122,12 +122,12 @@ var RankingTop5 = React.createClass({
 					return (
 						<li key={'key_' + i}>
 							<a href={charaUrl}>
-								<img src={charaThumbnail} alt={charaName} width="150" height="200" />
-								<dl>
-									<dt>{charaName}</dt>
-									<dd>{point}pt</dd>
-								</dl>
+								<figure>
+									<img src={charaThumbnail} alt={charaName} width="150" height="200" />
+									<figcaption>{charaName}</figcaption>
+								</figure>
 							</a>
+							<p className="top5Point">{point}pt</p>
 						</li>
 					);
 				})}

@@ -516,6 +516,7 @@ section:not(.slider).charaSimilarArea li {
 
 .charaDataArea .charaDescription {
   margin-bottom: 30px;
+  line-height: 1.5;
 }
 
 .charaDataArea .charaVoteArea {
@@ -647,11 +648,21 @@ section:not(.slider).charaSimilarArea li {
 }
 
 #sidebar h3 {
+  color: #411C00;
   font-weight: bold;
-  border-left: 5px solid #ff8e8e;
-  border-bottom: 1px solid #ff8e8e;
-  padding: 0 0 3px 10px;
-  margin-bottom: 20px;
+  position: relative;
+  border: 2px solid #ff8e8e;
+  padding: 10px;
+  margin-bottom: 30px;
+  border-radius: 4px;
+  background: -webkit-linear-gradient(#fff, #F4EDE6);
+  background: linear-gradient(#fff, #F4EDE6);
+}
+
+#sidebar h3:before {
+  content: '';
+  border-left: 5px solid #ff7f7f;
+  margin-right: 10px;
 }
 
 /* 広告 */
@@ -661,26 +672,64 @@ section:not(.slider).charaSimilarArea li {
   margin-bottom: 20px;
 }
 
-/* 人気アニメTOP3 */
-.rankingAnimeTop3 th img,
-.rankingCharaTop3 th img {
-  width: 80px;
-  height: auto;
+/* ランキングTOP5 */
+.rankingTop5 li {
+  text-align: center;
+  margin-bottom: 30px;
+  counter-increment: top5;
+  position: relative;
 }
 
-.rankingAnimeTop3 td,
-.rankingCharaTop3 td {
-  vertical-align: middle;
-  font-size: 14px;
-  padding-left: 5px;
+.rankingTop5 li:before {
+  content: counter(top5);
+  position: absolute;
+  top: -10px;
+  left: 40px;
+  color: #fff;
+  background: #4f2702;
+  font-size: 18px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  line-height: 50px;
 }
 
-.rankingAnimeTop3 tr {
-  height: 90px;
+.rankingTop5 li:nth-child(1):before {
+  background: #e6b422;
 }
 
-.rankingCharaTop3 tr {
-  height: 120px;
+.rankingTop5 li:nth-child(2):before {
+  background: #c0c0c0;
+}
+
+.rankingTop5 li:nth-child(3):before {
+  background: #c47022;
+}
+
+.rankingTop5 li a {
+  padding: 0 20px 10px;
+  border-bottom: 1px dashed #4f2702;
+}
+
+.rankingTop5 li img {
+  padding: 2px;
+  border: 1px solid #dcdcdc;
+  margin-bottom: 5px;
+}
+
+.rankingTop5 li figcaption {
+  white-space: nowrap;
+}
+
+.rankingTop5 li .top5Point {
+  position: absolute;
+  bottom: 40px;
+  right: 67px;
+  color: #fff;
+  background: #333;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 18px;
 }
 
 /* フッター

@@ -277,6 +277,7 @@ section:not(.slider) {
 	}
 	.charaDescription {
 		margin-bottom: 30px;
+		line-height: 1.5;
 	}
 	.charaVoteArea {
 		display: flex;
@@ -382,11 +383,7 @@ section:not(.slider) {
 		margin-bottom: 30px;
 	}
 	h3 {
-		font-weight: bold;
-		border-left: 5px solid $color-h3-border;
-		border-bottom: 1px solid $color-h3-border;
-		padding: 0 0 3px 10px;
-		margin-bottom: 20px;
+		@include h3title;
 	}
 }
 
@@ -397,31 +394,62 @@ section:not(.slider) {
 	margin-bottom: 20px;
 }
 
-/* 人気アニメTOP3 */
-.rankingAnimeTop3,
-.rankingCharaTop3 { // ここは画像サイズがそれぞれ違うはずなので後で変える
-	th {
-		img {
-			width: 80px;
-			height: auto;
+/* ランキングTOP5 */
+.rankingTop5 {
+	li {
+		text-align: center;
+		margin-bottom: 30px;
+		counter-increment: top5;
+		position: relative;
+		&:before {
+			content: counter(top5);
+			position: absolute;
+			top: -10px;
+			left: 40px;
+			color: #fff;
+			background: $color-id;
+			font-size: 18px;
+			width: 50px;
+			height: 50px;
+			border-radius: 50px;
+			line-height: 50px;
 		}
-	}
-	td {
-		vertical-align: middle;
-		font-size: 14px;
-		padding-left: 5px;
-	}
-}
-
-.rankingAnimeTop3 {
-	tr {
-		height: 90px;
-	}
-}
-
-.rankingCharaTop3 {
-	tr {
-		height: 120px;
+		&:nth-child(1) {
+			&:before {
+				background: #e6b422;
+			}
+		}
+		&:nth-child(2) {
+			&:before {
+				background: #c0c0c0;
+			}
+		}
+		&:nth-child(3) {
+			&:before {
+				background: #c47022;
+			}
+		}
+		a {
+			padding: 0 20px 10px;
+			border-bottom: 1px dashed $color-id;
+		}
+		img {
+			@include imgBorder;
+			margin-bottom: 5px;
+		}
+		figcaption {
+			white-space: nowrap;
+		}
+		.top5Point {
+		    position: absolute;
+		    bottom: 40px;
+		    right: 67px;
+		    color: #fff;
+		    background: #333;
+		    padding: 5px 10px;
+		    border-radius: 4px;
+		    font-size: 18px;
+		}
 	}
 }
 
