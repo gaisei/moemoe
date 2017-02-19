@@ -1,5 +1,5 @@
-var AnimeData; /* anime.jsonのデータ */
-var CharaData; /* character.jsonのデータ */
+var AnimeData = AnimeData || {};
+var CharaData = CharaData || {};
 
 /* 新着アニメ情報
 ****************************************************/
@@ -12,17 +12,32 @@ var NewAnimeInfo = React.createClass({
 		$.ajax({
 			url: this.props.url,
 			dataType: 'json',
-			async: false,
 			cache: false,
-			success: function(data) {
-				this.setState({data: data});
-			}.bind(this),
-			error: function(xhr, status, err) {
-				console.error(this.props.url, status, err.toString());
-			}.bind(this)
-		});
+			async: false /*これは使いたくないので対策を考える*/
+		})
+		.done(function(data) {
+			this.setState({data: data});
+		}.bind(this))
+		.fail(function(xhr, status, err) {
+			console.error(this.props.url, status, err.toString());
+		}.bind(this));
+	},
+	getAnime: function() {
+		$.ajax({
+			url: this.props.url,
+			dataType: 'json',
+			cache: false,
+			/*async: false*/ /*これは使いたくないので対策を考える*/
+		})
+		.done(function(data) {
+			this.setState({data: data});
+		}.bind(this))
+		.fail(function(xhr, status, err) {
+			console.error(this.props.url, status, err.toString());
+		}.bind(this));
 	},
 	render: function() {
+		console.log("新着アニメ情報");
 		AnimeData = this.state.data;
 		var newAnime3 = AnimeData.reverse().slice(0, 3);
 		return (
@@ -65,17 +80,18 @@ var NewCharaInfo = React.createClass({
 		$.ajax({
 			url: this.props.url,
 			dataType: 'json',
-			async: false,
 			cache: false,
-			success: function(data) {
-				this.setState({data: data});
-			}.bind(this),
-			error: function(xhr, status, err) {
-				console.error(this.props.url, status, err.toString());
-			}.bind(this)
-		});
+			async: false /*これは使わないので対策を考える*/
+		})
+		.done(function(data) {
+			this.setState({data: data});
+		}.bind(this))
+		.fail(function(xhr, status, err) {
+			console.error(this.props.url, status, err.toString());
+		}.bind(this));
 	},
 	render: function() {
+		console.log("新着キャラクター情報");
 		CharaData = this.state.data;
 		var newChara3 = CharaData.reverse().slice(0, 5);
 		return (
@@ -88,12 +104,7 @@ var NewCharaInfo = React.createClass({
 							animeName = AnimeData[j].nickname;
 						}
 					}
-					if(result.animeid !== null) {
-						var newCharaThumbnail = "images/anime/" + result.animeid + "/character/" + result.charaid + ".jpg";
-					} else {
-						/* nullにしてるのはアニメ用画像を作るのが面倒だったから。あとでちゃんと作る。 */
-						var newCharaThumbnail = "images/anime/null/character/" + result.charaid + ".jpg";
-					}
+					var newCharaThumbnail = "images/anime/" + result.animeid + "/character/" + result.charaid + ".jpg";
 					var charaUrl = "character/#" + animeName + "/" + result.charaid;
 					return (
 						<li key={'key_' + i}>
@@ -127,6 +138,7 @@ var CheckedChara = React.createClass({
 		return JSON.parse(localStorage.getItem('checkedList'));
 	},
 	render: function() {
+		console.log("最近チェックした");
 		var checkedList = this.getStorageData();
 		if(checkedList == null) {
 			return (<p>まだないです。</p>);

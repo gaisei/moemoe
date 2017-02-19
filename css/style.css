@@ -1,4 +1,5 @@
 @charset "UTF-8";
+/* ランキング */
 @import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
 /* 汎用
 ****************************************************/
@@ -189,6 +190,10 @@ h2:before {
   content: '';
   border-left: 5px solid #824921;
   margin-right: 10px;
+}
+
+.ranking h2 {
+  margin-bottom: 40px;
 }
 
 .searchArea {
@@ -635,6 +640,129 @@ section:not(.slider).charaSimilarArea li {
   background: #ffffe0;
 }
 
+/* ランキング */
+.rankingAll li {
+  width: 25%;
+  float: left;
+  text-align: center;
+  margin-bottom: 30px;
+  counter-increment: rank;
+  position: relative;
+}
+
+.rankingAll li:before {
+  content: counter(rank);
+  position: absolute;
+  color: #fff;
+  background: #4f2702;
+  font-size: 18px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  line-height: 50px;
+}
+
+.rankingAll li img {
+  padding: 2px;
+  border: 1px solid #dcdcdc;
+  margin-bottom: 5px;
+}
+
+.rankingAll li figcaption {
+  white-space: nowrap;
+}
+
+.rankingAll li:before {
+  top: -20px;
+  left: 5px;
+}
+
+.rankingAll li:nth-child(1):before {
+  background: #e6b422;
+}
+
+.rankingAll li:nth-child(2):before {
+  background: #c0c0c0;
+}
+
+.rankingAll li:nth-child(3):before {
+  background: #c47022;
+}
+
+.rankingAll li .rankPoint {
+  position: absolute;
+  color: #fff;
+  background: #333;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 18px;
+  bottom: 30px;
+  right: 35px;
+}
+
+.rankingAll li:nth-child(1) {
+  width: 33%;
+  margin-bottom: 50px;
+}
+
+.rankingAll li:nth-child(1) a {
+  width: 100%;
+  background: #fffde6;
+  padding: 40px 0 20px;
+}
+
+.rankingAll li:nth-child(1):before {
+  top: 15px;
+  left: 40px;
+}
+
+.rankingAll li:nth-child(1) .rankPoint {
+  bottom: 50px;
+  right: 70px;
+}
+
+.rankingAll li:nth-child(2) {
+  width: 33%;
+  margin-bottom: 50px;
+}
+
+.rankingAll li:nth-child(2) a {
+  width: 100%;
+  background: #fffde6;
+  padding: 40px 0 20px;
+}
+
+.rankingAll li:nth-child(2):before {
+  top: 15px;
+  left: 40px;
+}
+
+.rankingAll li:nth-child(2) .rankPoint {
+  bottom: 50px;
+  right: 70px;
+}
+
+.rankingAll li:nth-child(3) {
+  width: 33%;
+  margin-bottom: 50px;
+}
+
+.rankingAll li:nth-child(3) a {
+  width: 100%;
+  background: #fffde6;
+  padding: 40px 0 20px;
+}
+
+.rankingAll li:nth-child(3):before {
+  top: 15px;
+  left: 40px;
+}
+
+.rankingAll li:nth-child(3) .rankPoint {
+  bottom: 50px;
+  right: 70px;
+}
+
 /* サイドバー
 ****************************************************/
 /* 汎用 */
@@ -676,15 +804,13 @@ section:not(.slider).charaSimilarArea li {
 .rankingTop5 li {
   text-align: center;
   margin-bottom: 30px;
-  counter-increment: top5;
+  counter-increment: rank;
   position: relative;
 }
 
 .rankingTop5 li:before {
-  content: counter(top5);
+  content: counter(rank);
   position: absolute;
-  top: -10px;
-  left: 40px;
   color: #fff;
   background: #4f2702;
   font-size: 18px;
@@ -692,6 +818,21 @@ section:not(.slider).charaSimilarArea li {
   height: 50px;
   border-radius: 50px;
   line-height: 50px;
+}
+
+.rankingTop5 li img {
+  padding: 2px;
+  border: 1px solid #dcdcdc;
+  margin-bottom: 5px;
+}
+
+.rankingTop5 li figcaption {
+  white-space: nowrap;
+}
+
+.rankingTop5 li:before {
+  top: -10px;
+  left: 40px;
 }
 
 .rankingTop5 li:nth-child(1):before {
@@ -706,30 +847,15 @@ section:not(.slider).charaSimilarArea li {
   background: #c47022;
 }
 
-.rankingTop5 li a {
-  padding: 0 20px 10px;
-  border-bottom: 1px dashed #4f2702;
-}
-
-.rankingTop5 li img {
-  padding: 2px;
-  border: 1px solid #dcdcdc;
-  margin-bottom: 5px;
-}
-
-.rankingTop5 li figcaption {
-  white-space: nowrap;
-}
-
-.rankingTop5 li .top5Point {
+.rankingTop5 li .rankPoint {
   position: absolute;
-  bottom: 40px;
-  right: 67px;
   color: #fff;
   background: #333;
   padding: 5px 10px;
   border-radius: 4px;
   font-size: 18px;
+  bottom: 30px;
+  right: 67px;
 }
 
 /* フッター

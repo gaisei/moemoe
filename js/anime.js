@@ -13,14 +13,14 @@ var AnimeDetail = React.createClass({
 		$.ajax({
 			url: this.props.url,
 			dataType: 'json',
-			cache: false,
-			success: function(data) {
-				this.setState({data: data});
-			}.bind(this),
-			error: function(xhr, status, err) {
-				console.error(this.props.url, status, err.toString());
-			}.bind(this)
-		});
+			cache: false
+		})
+		.done(function(data) {
+			this.setState({data: data});
+		}.bind(this))
+		.fail(function(xhr, status, err) {
+			console.error(this.props.url, status, err.toString());
+		}.bind(this));
 	},
 	render: function() {
 		var hash = location.hash;
@@ -77,14 +77,14 @@ var AnimeChara = React.createClass({
 		$.ajax({
 			url: this.props.url,
 			dataType: 'json',
-			cache: false,
-			success: function(data) {
-				this.setState({data: data});
-			}.bind(this),
-			error: function(xhr, status, err) {
-				console.error(this.props.url, status, err.toString());
-			}.bind(this)
-		});
+			cache: false
+		})
+		.done(function(data) {
+			this.setState({data: data});
+		}.bind(this))
+		.fail(function(xhr, status, err) {
+			console.error(this.props.url, status, err.toString());
+		}.bind(this));
 	},
 	render: function() {
 		var charaList = this.state.data.map(function(result, i) {
@@ -128,14 +128,14 @@ var AnimeSimilar = React.createClass({
 		$.ajax({
 			url: this.props.url,
 			dataType: 'json',
-			cache: false,
-			success: function(data) {
-				this.setState({data: data});
-			}.bind(this),
-			error: function(xhr, status, err) {
-				console.error(this.props.url, status, err.toString());
-			}.bind(this)
-		});
+			cache: false
+		})
+		.done(function(data) {
+			this.setState({data: data});
+		}.bind(this))
+		.fail(function(xhr, status, err) {
+			console.error(this.props.url, status, err.toString());
+		}.bind(this));
 	},
 	shuffleArray: function(arr) {
 		var n = arr.length, t, i;
@@ -176,7 +176,7 @@ var AnimeSimilar = React.createClass({
 		// ここもっとスマートにできないだろうか。。
 		similarList = this.deleteUndefined(similarList);
 		similarList = this.shuffleArray(similarList);
-		similarList = similarList.slice(0, 4);
+		//similarList = similarList.slice(0, 4); とりあえず全部出す
 		if(similarList.length < 1) {
 			similarList = '';
 			similarList = 'いまのとこないです';

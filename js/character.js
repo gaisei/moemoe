@@ -1,10 +1,9 @@
-var AnimeData = [];
+var AnimeData = AnimeData || {};
+var CharaData = CharaData || {};
 
 var CharaID = '';
 var CharaName = '';
 var CharaType = '';
-
-var CharaData;
 
 /* キャラクター詳細
 ****************************************************/
@@ -17,17 +16,17 @@ var CharaDetail = React.createClass({
 		$.ajax({
 			url: this.props.url,
 			dataType: 'json',
-			cache: false,
-			success: function(data) {
-				this.setState({data: data});
-			}.bind(this),
-			error: function(xhr, status, err) {
-				console.error(this.props.url, status, err.toString());
-			}.bind(this)
-		});
+			cache: false
+		})
+		.done(function(data) {
+			this.setState({data: data});
+		}.bind(this))
+		.fail(function(xhr, status, err) {
+			console.error(this.props.url, status, err.toString());
+		}.bind(this));
 	},
 	getAnimeData: function() {
-		$.getJSON('../js/data/anime.json', function(data) {
+		$.getJSON('../js/data/anime.json').done(function(data) {
 			AnimeData = data;
 		});
 	},
@@ -50,12 +49,12 @@ var CharaDetail = React.createClass({
 		$.ajax({
 			type: 'POST',
 			url: this.props.vote,
-			data: {charaid: CharaID},
-			success: function(data) {
-				var data = JSON.parse(data);
-				$('.voteRank span').hide().text(data[0]).fadeIn(1500);
-				$('.votePoint span').hide().text(data[1]).fadeIn(1500);
-			}
+			data: {charaid: CharaID}
+		})
+		.done(function(data) {
+			var data = JSON.parse(data);
+			$('.voteRank span').hide().text(data[0]).fadeIn(1500);
+			$('.votePoint span').hide().text(data[1]).fadeIn(1500);
 		});
 		return false;
 	},
@@ -63,12 +62,12 @@ var CharaDetail = React.createClass({
 		$.ajax({
 			type: 'POST',
 			url: this.props.getpoint,
-			data: {charaid: cid},
-			success: function(data) {
-				var data = JSON.parse(data);
-				$('.voteRank span').text(data[0]);
-				$('.votePoint span').text(data[1]);
-			}
+			data: {charaid: cid}
+		})
+		.done(function(data) {
+			var data = JSON.parse(data);
+			$('.voteRank span').text(data[0]);
+			$('.votePoint span').text(data[1]);
 		});
 	},
 	render: function() {
@@ -153,14 +152,14 @@ var SimilarChara = React.createClass({
 		$.ajax({
 			url: this.props.url,
 			dataType: 'json',
-			cache: false,
-			success: function(data) {
-				this.setState({data: data});
-			}.bind(this),
-			error: function(xhr, status, err) {
-				console.error(this.props.url, status, err.toString());
-			}.bind(this)
-		});
+			cache: false
+		})
+		.done(function(data) {
+			this.setState({data: data});
+		}.bind(this))
+		.fail(function(xhr, status, err) {
+			console.error(this.props.url, status, err.toString());
+		}.bind(this));
 	},
 	render: function() {
 		var similars = this.state.data;

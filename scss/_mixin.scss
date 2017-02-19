@@ -15,6 +15,9 @@
 		border-left: 5px solid $color-h2-border-l;
 		margin-right: 10px;
 	}
+	.ranking & {
+		margin-bottom: 40px;
+	}
 }
 
 // h3
@@ -99,4 +102,57 @@
 	font-size: 12px;
 	margin-bottom: 20px;
 	white-space: nowrap;
+}
+
+/* ランキング */
+@mixin rankingLi {
+	text-align: center;
+	margin-bottom: 30px;
+	counter-increment: rank;
+	position: relative;
+	&:before {
+		content: counter(rank);
+		position: absolute;
+		color: #fff;
+		background: $color-id;
+		font-size: 18px;
+		width: 50px;
+		height: 50px;
+		border-radius: 50px;
+		line-height: 50px;
+	}
+	img {
+		@include imgBorder;
+		margin-bottom: 5px;
+	}
+	figcaption {
+		white-space: nowrap;
+	}
+}
+
+@mixin rankingTop3Color {
+	&:nth-child(1) {
+		&:before {
+			background: #e6b422;
+		}
+	}
+	&:nth-child(2) {
+		&:before {
+			background: #c0c0c0;
+		}
+	}
+	&:nth-child(3) {
+		&:before {
+			background: #c47022;
+		}
+	}	
+}
+
+@mixin rankPoint {
+	position: absolute;
+	color: #fff;
+	background: #333;
+	padding: 5px 10px;
+	border-radius: 4px;
+	font-size: 18px;
 }

@@ -11,17 +11,17 @@ var CharaList = React.createClass({
 		$.ajax({
 			url: this.props.url,
 			dataType: 'json',
-			cache: false,
-			success: function(data) {
-				this.setState({data: data});
-			}.bind(this),
-			error: function(xhr, status, err) {
-				console.error(this.props.url, status, err.toString());
-			}.bind(this)
-		});
+			cache: false
+		})
+		.done(function(data) {
+			this.setState({data: data});
+		}.bind(this))
+		.fail(function(xhr, status, err) {
+			console.error(this.props.url, status, err.toString());
+		}.bind(this));
 	},
 	getAnimeData: function() {
-		$.getJSON('../js/data/anime.json', function(data) {
+		$.getJSON('../js/data/anime.json').done(function(data) {
 			AnimeData = data;
 		});
 	},

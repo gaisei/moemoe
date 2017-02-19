@@ -2,8 +2,21 @@
 
 require_once('db.php');
 
-// ポイントが多い順に5人分抽出
-$sql = "SELECT * FROM moemoe_vote ORDER BY point DESC LIMIT 5";
+$type = $_POST['type'];
+
+switch($type) {
+	case top5:
+		// サイドバーのtop5の場合
+		$sql = "SELECT * FROM moemoe_vote ORDER BY point DESC LIMIT 5";
+		break;
+	case all:
+		// ランキングページの場合
+		$sql = "SELECT * FROM moemoe_vote ORDER BY point DESC";
+		break;
+	default:
+		break;
+}
+
 $stmt = $pdo->query($sql);
 
 $top5 = array();

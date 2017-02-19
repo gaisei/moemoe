@@ -1,3 +1,6 @@
+var AnimeData = AnimeData || {};
+var CharaData = CharaData || {};
+
 /* グローバルリンク
 ****************************************************/
 var local = window.location;
@@ -9,9 +12,6 @@ if(rootUrl.indexOf('gaisei') !== -1) {
 }
 
 rootUrl = rootUrl + '/';
-
-var AnimeData;
-var CharaData;
 
 /* ヘッダー
 ****************************************************/
@@ -71,12 +71,12 @@ var RankingTop5 = React.createClass({
 		return {data: []};
 	},
 	getAnimeData: function() {
-		$.getJSON(rootUrl + 'js/data/anime.json', function(data) {
+		$.getJSON(rootUrl + 'js/data/anime.json').done(function(data) {
 			AnimeData = data;
 		});
 	},
 	getCharaData: function() {
-		$.getJSON(rootUrl + 'js/data/character.json', function(data) {
+		$.getJSON(rootUrl + 'js/data/character.json').done(function(data) {
 			CharaData = data;
 		});
 	},
@@ -84,14 +84,15 @@ var RankingTop5 = React.createClass({
 		$.ajax({
 			type: 'POST',
 			dataType: 'json',
-			url: rootUrl + 'js/php/top5.php',
-			success: function(data) {
-				this.setState({data: data});
-			}.bind(this),
-			error: function(xhr, status, err) {
-				console.error(this.props.url, status, err.toString());
-			}.bind(this)
-		});
+			data: {type: 'top5'},
+			url: rootUrl + 'js/php/ranking.php',
+		})
+		.done(function(data) {
+			this.setState({data: data});
+		}.bind(this))
+		.fail(function(xhr, status, err) {
+			console.error(this.props.url, status, err.toString());
+		}.bind(this));
 	},
 	render: function() {
 		this.getAnimeData();
@@ -127,7 +128,7 @@ var RankingTop5 = React.createClass({
 									<figcaption>{charaName}</figcaption>
 								</figure>
 							</a>
-							<p className="top5Point">{point}pt</p>
+							<p className="rankPoint">{point}pt</p>
 						</li>
 					);
 				})}

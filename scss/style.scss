@@ -373,6 +373,45 @@ section:not(.slider) {
 	}
 }
 
+/* ランキング */
+.rankingAll {
+	li {
+		width: 25%;
+		float: left;
+		@include rankingLi;
+		&:before {
+			top: -20px;
+			left: 5px;
+		}
+		@include rankingTop3Color;
+		.rankPoint {
+		    @include rankPoint;
+		    bottom: 30px;
+			right: 35px;
+		}
+		@for $i from 1 through 3 {
+			&:nth-child(#{$i}) {
+				width: 33%;
+				margin-bottom: 50px;
+				a {
+					width: 100%;
+					background: #fffde6;
+					padding: 40px 0 20px;
+				}
+				&:before {
+					top: 15px;
+					left: 40px;
+				}
+				.rankPoint {
+					bottom: 50px;
+					right: 70px;
+				}
+			}
+		}
+	}
+}
+
+
 /* サイドバー
 ****************************************************/
 /* 汎用 */
@@ -397,58 +436,16 @@ section:not(.slider) {
 /* ランキングTOP5 */
 .rankingTop5 {
 	li {
-		text-align: center;
-		margin-bottom: 30px;
-		counter-increment: top5;
-		position: relative;
+		@include rankingLi;
 		&:before {
-			content: counter(top5);
-			position: absolute;
 			top: -10px;
 			left: 40px;
-			color: #fff;
-			background: $color-id;
-			font-size: 18px;
-			width: 50px;
-			height: 50px;
-			border-radius: 50px;
-			line-height: 50px;
 		}
-		&:nth-child(1) {
-			&:before {
-				background: #e6b422;
-			}
-		}
-		&:nth-child(2) {
-			&:before {
-				background: #c0c0c0;
-			}
-		}
-		&:nth-child(3) {
-			&:before {
-				background: #c47022;
-			}
-		}
-		a {
-			padding: 0 20px 10px;
-			border-bottom: 1px dashed $color-id;
-		}
-		img {
-			@include imgBorder;
-			margin-bottom: 5px;
-		}
-		figcaption {
-			white-space: nowrap;
-		}
-		.top5Point {
-		    position: absolute;
-		    bottom: 40px;
-		    right: 67px;
-		    color: #fff;
-		    background: #333;
-		    padding: 5px 10px;
-		    border-radius: 4px;
-		    font-size: 18px;
+		@include rankingTop3Color;
+		.rankPoint {
+		    @include rankPoint;
+		    bottom: 30px;
+			right: 67px;
 		}
 	}
 }
