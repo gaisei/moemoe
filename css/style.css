@@ -229,23 +229,37 @@ section:not(.slider) .newAnimeList li img {
   margin-bottom: 5px;
 }
 
-section:not(.slider) .newCharaList ul, section:not(.slider).checkedChara ul {
+section:not(.slider) .newAnimeList li figcaption {
+  width: 286.66667px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+section:not(.slider) .newCharaList ul, section:not(.slider).checkedChara ul, section:not(.slider).birthday ul {
   display: block;
   overflow: hidden;
   margin-bottom: 20px;
 }
 
-section:not(.slider) .newCharaList li, section:not(.slider).checkedChara li {
+section:not(.slider) .newCharaList li, section:not(.slider).checkedChara li, section:not(.slider).birthday li {
   font-size: 14px;
   width: 172px;
   text-align: center;
   float: left;
 }
 
-section:not(.slider) .newCharaList li img, section:not(.slider).checkedChara li img {
+section:not(.slider) .newCharaList li img, section:not(.slider).checkedChara li img, section:not(.slider).birthday li img {
   padding: 2px;
   border: 1px solid #dcdcdc;
   margin-bottom: 5px;
+}
+
+section:not(.slider) .newCharaList li figcaption, section:not(.slider).checkedChara li figcaption, section:not(.slider).birthday li figcaption {
+  width: 172px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 section:not(.slider).animeListArea ul {
@@ -265,6 +279,13 @@ section:not(.slider).animeListArea li img {
   padding: 2px;
   border: 1px solid #dcdcdc;
   margin-bottom: 5px;
+}
+
+section:not(.slider).animeListArea li figcaption {
+  width: 215px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 section:not(.slider).animeListArea li {
@@ -297,6 +318,13 @@ section:not(.slider).charaListArea li img {
   margin-bottom: 5px;
 }
 
+section:not(.slider).charaListArea li figcaption {
+  width: 172px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 section:not(.slider).charaListArea li {
   font-size: 12px;
   margin-bottom: 20px;
@@ -322,6 +350,13 @@ section:not(.slider).animeCharaArea li img {
   margin-bottom: 5px;
 }
 
+section:not(.slider).animeCharaArea li figcaption {
+  width: 172px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 section:not(.slider).animeCharaArea li {
   margin-bottom: 10px;
 }
@@ -343,6 +378,13 @@ section:not(.slider).animeSimilarArea li img {
   padding: 2px;
   border: 1px solid #dcdcdc;
   margin-bottom: 5px;
+}
+
+section:not(.slider).animeSimilarArea li figcaption {
+  width: 215px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 section:not(.slider).animeSimilarArea li {
@@ -373,6 +415,13 @@ section:not(.slider).charaSimilarArea li img {
   padding: 2px;
   border: 1px solid #dcdcdc;
   margin-bottom: 5px;
+}
+
+section:not(.slider).charaSimilarArea li figcaption {
+  width: 172px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 section:not(.slider).charaSimilarArea li {

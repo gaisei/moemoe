@@ -181,3 +181,56 @@ ReactDOM.render(
 	<CheckedChara />,
 	document.querySelector('.checkedCharaList')
 );
+
+/* 今月が誕生日のキャラクター
+****************************************************/
+var BirthdayChara = React.createClass({
+	displayName: 'BirthdayChara',
+	render: function() {
+		// 現在の月
+		var date = new Date();
+		var thisMonth = date.getMonth() + 1;
+
+		var birthdayCharas = [];
+		for(var i = 0; i < CharaData.length; i++) {
+			var birthMonth = CharaData[i].birthday;
+			birthMonth = birthMonth.substring(0, birthMonth.indexOf('月'));
+			if(birthMonth == thisMonth) birthdayCharas.unshift(CharaData[i]);
+		}
+		if(!birthdayCharas.length) {
+			return (<p>いません。</p>);
+		} else {
+			return (
+				<ul>
+					{birthdayCharas.map(function(result, i) {
+						var charaName = result.name;
+						var animeID = result.animeid;
+						var charaID = result.charaid;
+						for(var j = 0; j < AnimeData.length; j++) {
+							if(animeID == AnimeData[j].id) {
+								var animeName = AnimeData[j].nickname;
+								var charaUrl = "character/#" + animeName + "/" + charaID;
+								var charaThumbnail = "images/anime/" + animeID + "/character/" + charaID + ".jpg";
+								return (
+									<li key={'key_' + i}>
+										<a href={charaUrl}>
+											<figure>
+												{<img src={charaThumbnail} alt={charaName} width="150" height="200" />}
+												<figcaption>{charaName}</figcaption>
+											</figure>
+										</a>
+									</li>
+								);
+							}
+						}
+					})}
+				</ul>
+			);
+		}
+	}
+});
+
+ReactDOM.render(
+	<BirthdayChara />,
+	document.querySelector('.birthdayCharaList')
+);

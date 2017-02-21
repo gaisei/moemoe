@@ -95,6 +95,12 @@
 			@include imgBorder;
 			margin-bottom: 5px;
 		}
+		figcaption {
+			width: $size-main / $column;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
 	}
 }
 
