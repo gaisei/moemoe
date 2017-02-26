@@ -104,6 +104,24 @@
 	}
 }
 
+/* ページング */
+@mixin pageing {
+	text-align: center;
+	li {
+		width: auto;
+		padding: 10px;
+		border: 1px solid;
+		float: none;
+		display: inline-block;
+		margin: 0 10px;
+		cursor: pointer;
+		&.active {
+			font-weight: bold;
+			background: #eee;
+		}
+	}	
+}
+
 @mixin imgNameSsize {
 	font-size: 12px;
 	margin-bottom: 20px;

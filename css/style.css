@@ -1,4 +1,5 @@
 @charset "UTF-8";
+/* ページング */
 /* ランキング */
 @import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
 /* 汎用
@@ -299,6 +300,10 @@ section:not(.slider).animeListArea li img {
   height: auto;
 }
 
+section:not(.slider).charaListArea {
+  /* ページング */
+}
+
 section:not(.slider).charaListArea ul {
   display: block;
   overflow: hidden;
@@ -329,6 +334,25 @@ section:not(.slider).charaListArea li {
   font-size: 12px;
   margin-bottom: 20px;
   white-space: nowrap;
+}
+
+section:not(.slider).charaListArea .pageLink {
+  text-align: center;
+}
+
+section:not(.slider).charaListArea .pageLink li {
+  width: auto;
+  padding: 10px;
+  border: 1px solid;
+  float: none;
+  display: inline-block;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+section:not(.slider).charaListArea .pageLink li.active {
+  font-weight: bold;
+  background: #eee;
 }
 
 section:not(.slider).animeCharaArea ul {

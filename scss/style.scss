@@ -188,6 +188,10 @@ section:not(.slider) {
 		li {
 			@include imgNameSsize;
 		}
+		/* ページング */
+		.pageLink {
+			@include pageing;
+		}
 	}
 	/* アニメ詳細ページ */ 
 	&.animeCharaArea {
