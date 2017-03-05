@@ -1,6 +1,3 @@
-var AnimeData = AnimeData || {};
-var CharaData = CharaData || {};
-
 /* グローバルリンク
 ****************************************************/
 var local = window.location;
@@ -12,6 +9,43 @@ if(rootUrl.indexOf('gaisei') !== -1) {
 }
 
 rootUrl = rootUrl + '/';
+
+/* データ
+****************************************************/
+var AnimeData;
+var CharaData;
+
+$(function() {
+
+	/* アニメデータ */
+	$.ajax({
+		url: rootUrl + 'js/data/anime.json',
+		dataType: 'json',
+		cache: false,
+		async: false 
+	})
+	.done(function(data) {
+		AnimeData = data;
+	})
+	.fail(function(xhr, status, err) {
+		console.error(this.props.url, status, err.toString());
+	});
+
+	/* キャラデータ */
+	$.ajax({
+		url: rootUrl + 'js/data/character.json',
+		dataType: 'json',
+		cache: false,
+		async: false 
+	})
+	.done(function(data) {
+		CharaData = data;
+	})
+	.fail(function(xhr, status, err) {
+		console.error(this.props.url, status, err.toString());
+	});
+
+});
 
 /* ヘッダー
 ****************************************************/
@@ -44,6 +78,182 @@ ReactDOM.render(
 	document.getElementById('header')
 );
 
+/* 新着アニメ情報
+****************************************************/
+var NewAnimeInfo = React.createClass({
+	displayName: 'NewAnimeInfo',
+	render: function() {
+		var newAnime3 = AnimeData.reverse().slice(0, 3);
+		return (
+			<ul>
+				{newAnime3.map(function(result, i) {
+					var newAnimeThumbnail = "images/anime/" + result.id + "/thumbnail.jpg";
+					var animeUrl = "anime/#" + result.nickname;
+						return (
+							<li key={'key_' + i}>
+								<a href={animeUrl}>
+									<figure>
+										<img src={newAnimeThumbnail} alt={result.name} width="250" height="250" />
+										<figcaption>{result.name}</figcaption>
+									</figure>
+								</a>
+							</li>
+						);
+					})
+				}
+			</ul>
+		);
+	}
+});
+
+ReactDOM.render(
+	<NewAnimeInfo url="js/data/anime.json" />,
+	document.querySelector('.newAnimeList')
+);
+
+/* 新着キャラクター情報
+****************************************************/
+var NewCharaInfo = React.createClass({
+	displayName: 'NewCharaInfo',
+	render: function() {
+		var newChara3 = CharaData.reverse().slice(0, 5);
+		return (
+			<ul>
+				{newChara3.map(function(result, i) {
+					var animeid = result.animeid;
+					var animeName;
+					for(var j = 0; j < AnimeData.length; j++) {
+						if(AnimeData[j].id == animeid) {
+							animeName = AnimeData[j].nickname;
+						}
+					}
+					var newCharaThumbnail = "images/anime/" + result.animeid + "/character/" + result.charaid + ".jpg";
+					var charaUrl = "character/#" + animeName + "/" + result.charaid;
+					return (
+						<li key={'key_' + i}>
+							<a href={charaUrl}>
+								<figure>
+									<img src={newCharaThumbnail} alt={result.name} width="150" height="200" />
+									<figcaption>{result.name}</figcaption>
+								</figure>
+							</a>
+						</li>
+					);
+				})}
+			</ul>
+		);
+	}
+});
+
+ReactDOM.render(
+	<NewCharaInfo url="js/data/character.json" />,
+	document.querySelector('.newCharaList')
+);
+
+/* 最近チェックしたキャラクター
+****************************************************/
+var CheckedChara = React.createClass({
+	displayName: 'CheckedChara',
+	getStorageData: function() {
+		return JSON.parse(localStorage.getItem('checkedList'));
+	},
+	render: function() {
+		var checkedList = this.getStorageData();
+		if(checkedList == null) {
+			return (<p>まだないです。</p>);
+		} else {
+			return (
+				<ul>
+				{checkedList.map(function(result, i) {
+					for(var j = 0; j < CharaData.length; j++) {
+						if(checkedList[i] == CharaData[j].id) {
+							var charaName = CharaData[j].name;
+							var animeID = CharaData[j].animeid;
+							var charaID = CharaData[j].charaid;
+							for(var k = 0; k < AnimeData.length; k++) {
+								if(animeID == AnimeData[k].id) {
+									var animeName = AnimeData[k].nickname;
+									var charaUrl = "character/#" + animeName + "/" + charaID;
+									var charaThumbnail = "images/anime/" + animeID + "/character/" + charaID + ".jpg";
+									return (
+										<li key={'key_' + i}>
+											<a href={charaUrl}>
+												<figure>
+													{<img src={charaThumbnail} alt={charaName} width="150" height="200" />}
+													<figcaption>{charaName}</figcaption>
+												</figure>
+											</a>
+										</li>
+									);
+								}
+							}
+						}
+					}
+				})}
+				</ul>
+			);
+		}
+	}
+});
+
+ReactDOM.render(
+	<CheckedChara />,
+	document.querySelector('.checkedCharaList')
+);
+
+/* 今月が誕生日のキャラクター
+****************************************************/
+var BirthdayChara = React.createClass({
+	displayName: 'BirthdayChara',
+	render: function() {
+		// 現在の月
+		var date = new Date();
+		var thisMonth = date.getMonth() + 1;
+
+		var birthdayCharas = [];
+		for(var i = 0; i < CharaData.length; i++) {
+			var birthMonth = CharaData[i].birthday;
+			birthMonth = birthMonth.substring(0, birthMonth.indexOf('月'));
+			if(birthMonth == thisMonth) birthdayCharas.unshift(CharaData[i]);
+		}
+		if(!birthdayCharas.length) {
+			return (<p>いません。</p>);
+		} else {
+			return (
+				<ul>
+					{birthdayCharas.map(function(result, i) {
+						var charaName = result.name;
+						var animeID = result.animeid;
+						var charaID = result.charaid;
+						for(var j = 0; j < AnimeData.length; j++) {
+							if(animeID == AnimeData[j].id) {
+								var animeName = AnimeData[j].nickname;
+								var charaUrl = "character/#" + animeName + "/" + charaID;
+								var charaThumbnail = "images/anime/" + animeID + "/character/" + charaID + ".jpg";
+								return (
+									<li key={'key_' + i}>
+										<a href={charaUrl}>
+											<figure>
+												{<img src={charaThumbnail} alt={charaName} width="150" height="200" />}
+												<figcaption>{charaName}</figcaption>
+											</figure>
+										</a>
+									</li>
+								);
+							}
+						}
+					})}
+				</ul>
+			);
+		}
+	}
+});
+
+ReactDOM.render(
+	<BirthdayChara />,
+	document.querySelector('.birthdayCharaList')
+);
+
 /* サイドバー
 ****************************************************/
 /* 広告 */
@@ -70,16 +280,6 @@ var RankingTop5 = React.createClass({
 	getInitialState: function() {
 		return {data: []};
 	},
-	getAnimeData: function() {
-		$.getJSON(rootUrl + 'js/data/anime.json').done(function(data) {
-			AnimeData = data;
-		});
-	},
-	getCharaData: function() {
-		$.getJSON(rootUrl + 'js/data/character.json').done(function(data) {
-			CharaData = data;
-		});
-	},
 	componentDidMount: function() {
 		$.ajax({
 			type: 'POST',
@@ -95,8 +295,6 @@ var RankingTop5 = React.createClass({
 		}.bind(this));
 	},
 	render: function() {
-		this.getAnimeData();
-		this.getCharaData();
 		var top5Obj = this.state.data;
 		return (
 			<ul>
